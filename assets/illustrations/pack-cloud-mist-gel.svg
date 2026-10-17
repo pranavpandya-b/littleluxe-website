@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 230" role="img" aria-label="Cloud Mist Gel jar">
+  <g fill="#17A57C" stroke="#2B1A4A" stroke-width="4"><path d="M30 70c-8-22 14-36 30-26 4-18 32-22 40-6 14-14 40-4 36 16 14 2 18 12 16 16z" stroke-linejoin="round"/></g>
+  <rect x="22" y="58" width="136" height="40" rx="14" fill="#17A57C" stroke="#2B1A4A" stroke-width="4"/>
+  <rect x="14" y="94" width="152" height="128" rx="30" fill="#fff" stroke="#2B1A4A" stroke-width="4"/>
+  <path d="M30 112c-3 30-3 66 4 92" stroke="#C9F0DF" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <text x="94" y="126" text-anchor="middle" font-family="Bricolage Grotesque, system-ui, sans-serif" font-weight="800" font-size="12" letter-spacing="1" fill="#0B6B50">little luxe</text>
+  <text x="94" y="160" text-anchor="middle" font-family="Bagel Fat One, Arial Rounded MT Bold, sans-serif" font-size="26" fill="#2B1A4A">Cloud Mist</text>
+  <rect x="64" y="174" width="60" height="24" rx="12" fill="#17A57C"/><text x="94" y="191" text-anchor="middle" font-family="Bricolage Grotesque, system-ui, sans-serif" font-weight="800" font-size="13" fill="#fff">GEL</text>
+</svg>

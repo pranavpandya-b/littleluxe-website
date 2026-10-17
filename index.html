@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Little Luxe | Growing skin deserves care</title>
+<meta name="description" content="Doctor-formulated sun care and hydration for kids aged 4 to 16. Clinical standards for their skin. Peace of mind for you.">
+<meta name="theme-color" content="#F7F3FF">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Gochi+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<a class="sr-only" href="#app">Skip to content</a>
+<div class="announce"><span class="hide-sm">Festive offer: First Glow Ritual Kit at ₹599, was ₹945. Buy 3 kits, get 1 free.</span><span class="show-sm">First Glow Kit at ₹599. Buy 3, get 1 free.</span> <a href="#/product/first-glow-kit">See the kit</a></div>
+
+<header class="header">
+  <a class="logo" href="#/" aria-label="Little Luxe home"><span id="logoDot"></span>little luxe</a>
+  <nav class="nav" aria-label="Main">
+    <a class="btn btn--ghost hide-sm" href="#/shop">Shop</a>
+    <a class="btn btn--ghost hide-sm" href="#/story">Our story</a>
+    <a class="btn btn--sun hide-sm" href="#/start-here">Start here</a>
+    <button class="btn btn--ghost icon-btn sound-btn" aria-pressed="true" aria-label="Sound on. Turn sounds off"><span class="snd-icon"></span></button>
+    <button class="btn btn--ghost icon-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span id="menuIcon" style="display:contents"></span></button>
+    <button class="btn icon-btn bag-btn" data-open-cart aria-label="Open bag"><span id="bagIcon" style="display:contents"></span><span class="bag-count" hidden>0</span></button>
+  </nav>
+  <div class="sound-hint" id="soundHint" aria-hidden="true"><span class="hide-sm">tap anywhere to hear the little sounds</span><span class="show-sm">tap anywhere for little sounds</span></div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu__scrim" data-close-menu></div>
+  <div class="menu__panel" role="dialog" aria-label="Menu">
+    <button class="btn btn--ghost icon-btn menu__close" data-close-menu aria-label="Close menu"><span class="x-icon" style="display:contents"></span></button>
+    <div class="menu__grid">
+      <ul class="menu__links">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/shop">Shop</a></li>
+        <li><a href="#/story">Our story</a></li>
+        <li><a href="#/start-here">Start here</a></li>
+        <li><a href="#/inside">What's inside</a></li>
+        <li><a href="#/faq">FAQ</a></li>
+        <li><a href="#/skin-notes">Skin Notes</a></li>
+      </ul>
+      <div class="menu__prods" id="menuProds"></div>
+    </div>
+  </div>
+</div>
+
+<main id="app" tabindex="-1"></main>
+
+<div id="footMarquee"></div>
+<footer class="foot">
+  <div class="foot__grid">
+    <ul aria-label="Pages">
+      <li><a href="#/shop">Shop all</a></li><li><a href="#/story">Our story</a></li><li><a href="#/start-here">Start here</a></li>
+      <li><a href="#/inside">What's inside</a></li><li><a href="#/faq">FAQ</a></li><li><a href="#/skin-notes">Skin Notes</a></li>
+    </ul>
+    <ul aria-label="Products">
+      <li><a href="#/product/glow-shield">Glow Shield</a></li><li><a href="#/product/blush-block">Blush &amp; Block</a></li>
+      <li><a href="#/product/cloud-mist">Cloud Mist Gel</a></li><li><a href="#/product/first-glow-kit">First Glow Kit</a></li>
+    </ul>
+    <div>
+      <h3>Get the Sunday skin note.</h3>
+      <p style="opacity:.85;max-width:44ch">One short email a week: seasonal sun tips, new launches and the odd offer.</p>
+      <form class="nl" id="nl" novalidate><label class="sr-only" for="nlEmail">Email address</label><input id="nlEmail" type="email" placeholder="Your email" autocomplete="email"><button class="btn btn--sun" type="submit">Sign me up</button></form>
+      <p class="hand" id="nlMsg" style="font-size:1.4rem;color:var(--sunny);margin-top:10px" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="foot__claims" id="footClaims"></div>
+  <div class="foot__big" aria-hidden="true">little luxe</div>
+  <div class="foot__small"><span>© 2026 Little Luxe. Made in India, for Indian skin.</span><span>Care that grows with them.</span></div>
+</footer>
+
+<div class="cart" id="cart" aria-hidden="true">
+  <div class="cart__scrim" data-close-cart></div>
+  <aside class="cart__panel" role="dialog" aria-label="Your bag">
+    <div class="cart__head"><h3>Your bag</h3><button class="btn btn--ghost icon-btn btn--sm" style="width:44px" data-close-cart aria-label="Close bag"><span class="x-icon" style="display:contents"></span></button></div>
+    <div class="cart__items" id="cartItems"></div>
+    <div class="cart__foot" id="cartFoot">
+      <div class="cart__offer" id="cartOffer"></div>
+      <div class="cart__total"><span>Subtotal</span><span id="cartTotal">₹0</span></div>
+      <button class="btn" id="checkout" style="width:100%">Go to checkout</button>
+    </div>
+  </aside>
+</div>
+
+<div class="reader" id="reader" aria-hidden="true">
+  <div class="reader__scrim" data-close-reader></div>
+  <div class="reader__card" role="dialog" aria-label="Skin note">
+    <button class="btn btn--ghost icon-btn btn--sm" style="position:absolute;top:16px;right:16px;width:44px" data-close-reader aria-label="Close note"><span class="x-icon" style="display:contents"></span></button>
+    <div id="readerBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/art.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Close-up of a smiling child's face">
+  <rect width="400" height="400" fill="#FFD0C7"/>
+  <circle cx="200" cy="230" r="150" fill="#C68A5E"/>
+  <circle cx="54" cy="236" r="26" fill="#A86F47"/><circle cx="346" cy="236" r="26" fill="#A86F47"/>
+  <path d="M52 200C44 104 120 54 206 60c86 4 150 62 140 140-34-46-92-74-150-70-58 4-110 30-144 70z" fill="#2B1A4A"/>
+  <path d="M140 222q20-22 40 0M220 222q20-22 40 0" stroke="#2B1A4A" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M168 288q32 30 64 0" stroke="#2B1A4A" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <circle cx="122" cy="276" r="22" fill="#E2405A" opacity=".5"/><circle cx="278" cy="276" r="22" fill="#E2405A" opacity=".5"/>
+</svg>

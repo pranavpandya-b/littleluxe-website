@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 262" role="img" aria-label="Illustrated child">
+  <g class=""><path d="M50 196 L48 246" stroke="#C68A5E" stroke-width="14" stroke-linecap="round"/><ellipse cx="46" cy="250" rx="13" ry="7" fill="#2B1A4A"/></g>
+  <g class=""><path d="M70 196 L72 246" stroke="#A86F47" stroke-width="14" stroke-linecap="round"/><ellipse cx="74" cy="250" rx="13" ry="7" fill="#2B1A4A"/></g>
+  <rect x="36" y="166" width="48" height="38" rx="12" fill="#2449B8"/>
+  <path d="M36 118 L18 168" stroke="#A86F47" stroke-width="12" stroke-linecap="round"/>
+  <path d="M84 118 L102 168" stroke="#C68A5E" stroke-width="12" stroke-linecap="round"/>
+  <rect x="30" y="102" width="60" height="76" rx="24" fill="#E2405A"/>
+  <path d="M48 104q12 10 24 0" stroke="rgba(255,255,255,.6)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="60" cy="64" r="38" fill="#C68A5E"/>
+  <circle cx="22" cy="68" r="7" fill="#A86F47"/><circle cx="98" cy="68" r="7" fill="#A86F47"/>
+  <path d="M22 64C20 30 46 18 64 22c24 2 36 22 34 40-10-12-28-20-46-16-12 2-22 10-30 18Z" fill="#2B1A4A"/>
+  <path d="M24 46c4-22 26-30 42-28 18 2 30 14 30 28z" fill="#F2B705"/><rect x="60" y="40" width="50" height="9" rx="4.5" fill="#F2B705"/>
+  <circle cx="46" cy="70" r="4.6" fill="#2B1A4A"/><circle cx="74" cy="70" r="4.6" fill="#2B1A4A"/>
+  <circle cx="47.6" cy="68.4" r="1.4" fill="#fff"/><circle cx="75.6" cy="68.4" r="1.4" fill="#fff"/>
+  <path d="M48 85q12 11 24 0" stroke="#2B1A4A" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="36" cy="82" r="6.5" fill="#E2405A" opacity=".45"/><circle cx="84" cy="82" r="6.5" fill="#E2405A" opacity=".45"/>
+</svg>

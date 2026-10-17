@@ -1,0 +1,1752 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Little Luxe | Growing skin deserves care</title>
+<meta name="description" content="Doctor-formulated sun care and hydration for kids aged 4 to 16. Clinical standards for their skin. Peace of mind for you.">
+<meta name="theme-color" content="#F7F3FF">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Gochi+Hand&display=swap" rel="stylesheet">
+<style>/* ==========================================================
+   LITTLE LUXE — design tokens
+   Rule: every coloured surface = light fill + dark partner
+   for text AND a hard, flat offset shadow. No grey shadows.
+   ========================================================== */
+:root{
+  --cloud:#F7F3FF;      /* page base, lavender milk */
+  --paper:#FFFFFF;
+  --ink:#2B1A4A;        /* plum ink */
+  --ink-2:#5A4A7A;
+  --sunny:#FFE68F;  --sunny-d:#8A5200;  --sunny-s:#F2B705;
+  --blush:#FFD0C7;  --blush-d:#B5223F;  --blush-s:#E2405A;
+  --mint:#C9F0DF;   --mint-d:#0B6B50;   --mint-s:#17A57C;
+  --sky:#CFE2FF;    --sky-d:#2449B8;    --sky-s:#4F7BF0;
+  --lilac:#E3D7FF;  --lilac-d:#5B36B8;  --lilac-s:#8C67E8;
+  --skin:#C68A5E; --skin-2:#A86F47; --hair:#2B1A4A;
+
+  --f-display:"Bagel Fat One", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --f-ui:"Bricolage Grotesque", system-ui, sans-serif;
+  --f-hand:"Gochi Hand", "Comic Sans MS", cursive;
+
+  --blob:18px 26px 16px 24px / 22px 16px 26px 18px;
+  --blob-lg:46px 58px 42px 54px / 52px 44px 58px 46px;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+  --gutter:12px;
+  --header-h:84px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scrollbar-width:none;-webkit-text-size-adjust:100%}
+html::-webkit-scrollbar{display:none}
+html,body{overflow-x:clip;max-width:100%}
+body{
+  margin:0;-webkit-tap-highlight-color:transparent;background:var(--cloud);color:var(--ink);
+  font-family:var(--f-ui);font-variation-settings:"wdth" 100;font-weight:450;
+  font-size:1.05rem;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+img,svg{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none;padding:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:12px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+h1,h2,h3,.display{font-family:var(--f-display);font-weight:400;line-height:.95;letter-spacing:-.005em;margin:0;text-wrap:balance}
+h1{font-size:clamp(3.1rem,8.6vw,8.2rem)}
+h2{font-size:clamp(2.3rem,5.8vw,5.4rem)}
+h3{font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1}
+p{margin:0 0 1em;text-wrap:pretty}
+.lead{font-size:clamp(1.12rem,1.6vw,1.4rem);line-height:1.45;max-width:36ch}
+.hand{font-family:var(--f-hand);font-weight:400;letter-spacing:.01em}
+.ui{font-variation-settings:"wdth" 75;font-weight:800;letter-spacing:.01em}
+.wrap{width:min(1320px,100% - 32px);margin-inline:auto}
+.center{text-align:center}
+.center .lead{margin-inline:auto}
+
+/* ---------- blob button: hard shadow collapses on hover (press) ---------- */
+.btn{
+  --bg:var(--blush-s);--fg:#fff;--sh:var(--ink);
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  min-height:56px;padding:.85em 1.5em;border-radius:var(--blob);
+  background:var(--bg);color:var(--fg);text-decoration:none;
+  font-family:var(--f-ui);font-variation-settings:"wdth" 75;font-weight:800;font-size:1.15rem;line-height:1;
+  box-shadow:5px 5px 0 var(--sh);transform:translate(0,0);
+  transition:transform .18s var(--ease),box-shadow .18s var(--ease),background .2s;
+}
+.btn:hover{transform:translate(5px,5px);box-shadow:0 0 0 var(--sh)}
+.btn:active{transform:translate(5px,5px) scale(.97)}
+.btn--ghost{--bg:var(--paper);--fg:var(--ink)}
+.btn--sun{--bg:var(--sunny);--fg:var(--sunny-d);--sh:var(--sunny-d)}
+.btn--mint{--bg:var(--mint);--fg:var(--mint-d);--sh:var(--mint-d)}
+.btn--sky{--bg:var(--sky);--fg:var(--sky-d);--sh:var(--sky-d)}
+.btn--lilac{--bg:var(--lilac);--fg:var(--lilac-d);--sh:var(--lilac-d)}
+.btn--ink{--bg:var(--ink);--fg:#fff;--sh:var(--blush-s)}
+.btn--sm{min-height:44px;font-size:1rem;padding:.7em 1.1em;box-shadow:4px 4px 0 var(--sh)}
+.btn--sm:hover{transform:translate(4px,4px)}
+.btn svg{width:1.2em;height:1.2em}
+
+/* ---------- stickers ---------- */
+.sticker{
+  --bg:var(--sunny);--fg:var(--sunny-d);
+  display:inline-block;padding:.45em .9em .5em;border-radius:14px 18px 12px 16px;
+  background:var(--bg);color:var(--fg);
+  font-variation-settings:"wdth" 75;font-weight:800;font-size:1.05rem;line-height:1.05;
+  border:3px solid #fff;box-shadow:4px 4px 0 var(--fg);transform:rotate(var(--r,-6deg));
+  transition:transform .3s var(--spring);
+}
+.sticker:hover{transform:rotate(calc(var(--r,-6deg) * -1)) scale(1.06)}
+.bandaid{
+  --bg:var(--blush);--fg:var(--blush-d);
+  position:relative;display:inline-flex;align-items:center;gap:.6em;
+  padding:.55em 1.3em;border-radius:999px;background:var(--bg);color:var(--fg);
+  font-variation-settings:"wdth" 75;font-weight:800;font-size:1rem;white-space:nowrap;
+  box-shadow:4px 4px 0 var(--fg);transform:rotate(var(--r,0deg));
+}
+.bandaid::before{content:"";width:14px;height:14px;border-radius:4px;flex:none;
+  background:radial-gradient(circle,var(--fg) 1.4px,transparent 1.6px) 0 0/5px 5px;opacity:.6}
+
+/* ---------- announcement + header ---------- */
+.announce{background:var(--ink);color:#fff;text-align:center;padding:.55em 16px;font-size:.92rem;
+  font-variation-settings:"wdth" 75;font-weight:700;position:relative;z-index:60}
+.announce a{color:var(--sunny);text-underline-offset:3px}
+.header{position:fixed;top:0;left:0;right:0;z-index:50;pointer-events:none;padding:14px clamp(12px,1.6vw,24px);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;transition:transform .35s var(--ease)}
+.header > *{pointer-events:auto}
+.header.is-hidden{transform:translateY(calc(-100% - 80px))}
+.header.is-top{top:var(--announce-h,0px)}
+.logo{display:inline-flex;align-items:center;gap:.35em;padding:.38em .7em .46em;border-radius:var(--blob);
+  background:var(--paper);color:var(--ink);text-decoration:none;font-family:var(--f-display);font-size:clamp(1.4rem,2.4vw,2rem);line-height:1;
+  box-shadow:5px 5px 0 var(--ink);transition:transform .3s var(--ease)}
+.logo:hover{transform:translate(-8px,-8px)}
+.logo .dot{width:.62em;height:.62em;border-radius:50%;background:var(--sunny-s);box-shadow:inset -3px -3px 0 rgba(0,0,0,.12)}
+.nav{display:flex;align-items:center;gap:10px}
+.nav .btn{min-height:50px;font-size:1.05rem;padding:.6em 1.05em}
+.icon-btn{width:52px;height:52px;padding:0}
+.icon-btn svg{width:26px;height:26px}
+.bag-count{position:absolute;top:-8px;right:-8px;min-width:24px;height:24px;border-radius:12px;padding:0 6px;
+  background:var(--sunny);color:var(--ink);font-size:.8rem;font-weight:800;display:grid;place-items:center;border:2px solid var(--ink)}
+.bag-count.bump{animation:bump .5s var(--spring)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.5) rotate(-10deg)}100%{transform:scale(1)}}
+.sound-btn[aria-pressed="false"] .wave{opacity:0}
+.sound-btn[aria-pressed="false"] .mute{opacity:1}
+.sound-btn .mute{opacity:0}
+.show-sm{display:none}
+@media (max-width:820px){ .nav .hide-sm,.hide-sm{display:none} .show-sm{display:inline} :root{--header-h:72px} }
+
+/* ---------- menu drawer ---------- */
+.menu{position:fixed;inset:0;z-index:70;display:grid;grid-template-columns:1fr;pointer-events:none}
+.menu__scrim{position:absolute;inset:0;background:rgba(43,26,74,.45);opacity:0;transition:opacity .3s}
+.menu__panel{position:relative;margin:var(--gutter);border-radius:var(--blob-lg);background:var(--sunny);
+  padding:clamp(24px,4vw,56px);transform:translateY(-110%);transition:transform .55s var(--spring);
+  max-height:calc(100dvh - 24px);overflow:auto;box-shadow:8px 8px 0 var(--ink)}
+.menu.open{pointer-events:auto}
+.menu.open .menu__scrim{opacity:1}
+.menu.open .menu__panel{transform:none}
+.menu__grid{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(20px,4vw,56px);margin-top:12px}
+.menu__links{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.menu__links a{font-family:var(--f-display);font-size:clamp(2rem,4.6vw,3.8rem);line-height:1.08;text-decoration:none;color:var(--ink);
+  display:inline-block;transition:transform .25s var(--spring),color .2s}
+.menu__links a:hover{transform:translateX(12px) rotate(-2deg);color:var(--blush-d)}
+.menu__prods{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.menu__prod{border-radius:28px;padding:14px;text-decoration:none;display:grid;gap:6px;justify-items:center;text-align:center;
+  background:var(--bg);color:var(--fg);box-shadow:5px 5px 0 var(--fg);transition:transform .2s var(--ease),box-shadow .2s}
+.menu__prod:hover{transform:translate(5px,5px);box-shadow:0 0 0 var(--fg)}
+.menu__prod svg{height:120px;width:auto}
+.menu__prod span{font-variation-settings:"wdth" 75;font-weight:800;line-height:1.1}
+.menu__close{position:absolute;top:18px;right:18px}
+@media (max-width:760px){.menu__grid{grid-template-columns:1fr}.menu__prods svg{height:90px}}
+
+/* ---------- main + page transition ---------- */
+main{min-height:80vh;transition:opacity .2s var(--ease)}
+main.leaving{opacity:0}
+main.entering{animation:pageIn .45s var(--ease)}
+@keyframes pageIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- panels ---------- */
+.panel{margin:var(--gutter);border-radius:var(--blob-lg);position:relative;overflow:hidden}
+.section{padding-block:clamp(64px,10vw,140px)}
+.c-sunny{background:var(--sunny);color:var(--sunny-d)}
+.c-blush{background:var(--blush);color:var(--blush-d)}
+.c-mint{background:var(--mint);color:var(--mint-d)}
+.c-sky{background:var(--sky);color:var(--sky-d)}
+.c-lilac{background:var(--lilac);color:var(--lilac-d)}
+.c-ink{background:var(--ink);color:#fff}
+
+/* ---------- HERO ---------- */
+.hero{min-height:calc(100svh - var(--gutter)*2);background:var(--sky);color:var(--ink);display:grid;align-items:center;
+  padding:calc(var(--header-h) + 40px) clamp(20px,5vw,80px) clamp(40px,6vw,80px)}
+.hero__grid{display:grid;grid-template-columns:1.05fr 1fr;gap:24px;align-items:center;position:relative;z-index:3}
+.hero h1{color:var(--ink)}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .line > span{display:inline-block;transform:translateY(110%);animation:rise .9s var(--spring) forwards}
+.hero h1 .line:nth-child(2) > span{animation-delay:.12s}
+.hero h1 .line:nth-child(3) > span{animation-delay:.24s}
+@keyframes rise{to{transform:none}}
+.hero .lead{margin:22px 0 30px;color:var(--ink-2)}
+.hero__ctas{display:flex;flex-wrap:wrap;gap:14px}
+.hero__stage{position:relative;aspect-ratio:1/1;max-height:72vh;justify-self:center;width:100%}
+.layer{position:absolute;will-change:transform;transition:transform .25s linear}
+.hero__sun{width:52%;top:-2%;right:2%}
+.hero__sun .rays{transform-origin:100px 100px;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero__cloud{opacity:.95}
+.hero__p1{width:26%;left:8%;bottom:6%;--r:-10deg}
+.hero__p2{width:30%;left:36%;bottom:2%;--r:4deg}
+.hero__p3{width:26%;right:4%;bottom:8%;--r:12deg}
+.hero__prod > svg{transform:rotate(var(--r));filter:drop-shadow(8px 8px 0 rgba(43,26,74,.9))}
+.hero__prod{animation:bob 4.5s ease-in-out infinite}
+.hero__p2{animation-delay:-1.4s}.hero__p3{animation-delay:-2.6s}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.hero__note{position:absolute;left:-10%;top:22%;z-index:5;font-size:clamp(1.2rem,2vw,1.7rem);color:var(--ink);transform:rotate(-8deg)}
+.hero__note svg{width:90px;margin:4px 0 0 40px}
+.hero .sticker{position:absolute;z-index:4}
+.spin-badge{position:absolute;width:clamp(110px,12vw,170px);z-index:4}
+.spin-badge text{font-family:var(--f-ui);font-variation-settings:"wdth" 75;font-weight:800;font-size:15px;letter-spacing:2px}
+@media (max-width:1100px){.hero__note{display:none}}
+@media (max-width:900px){
+  .hero__grid{grid-template-columns:1fr}
+  .hero__stage{max-height:none;width:min(520px,100%)}
+  .hero__note{display:none}
+}
+
+/* ---------- marquee ---------- */
+.marquee{overflow:hidden;white-space:nowrap;padding:18px 0;position:relative}
+.marquee__track{display:flex;width:max-content;animation:marq 28s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__item{display:inline-flex;align-items:center;gap:28px;padding-right:28px;font-variation-settings:"wdth" 75;font-weight:800;
+  font-size:clamp(1.3rem,2.6vw,2.2rem)}
+.marquee__item svg{width:1.1em;height:1.1em;flex:none}
+@keyframes marq{to{transform:translateX(-50%)}}
+.marquee--tilt{transform:rotate(-1.5deg);margin:-6px -10px}
+
+/* ---------- product cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:clamp(16px,2vw,28px)}
+.pcard{--bg:var(--sunny);--fg:var(--sunny-d);position:relative;border-radius:var(--blob-lg);background:var(--bg);color:var(--fg);
+  padding:22px 22px 24px;text-decoration:none;display:flex;flex-direction:column;align-items:center;text-align:center;
+  transition:transform .22s var(--ease),box-shadow .22s var(--ease);box-shadow:0 0 0 var(--fg)}
+.pcard:hover{transform:translateY(-8px) rotate(2.5deg);box-shadow:7px 7px 0 var(--fg)}
+.pcard__img{height:260px;display:grid;place-items:center;margin-bottom:8px}
+.pcard__img svg{height:240px;width:auto;transition:transform .35s var(--spring)}
+.pcard:hover .pcard__img svg{transform:scale(1.06) rotate(-4deg)}
+.pcard h3{font-size:clamp(1.5rem,2.2vw,1.9rem);margin-bottom:6px}
+.pcard__sub{font-size:.98rem;margin-bottom:14px;max-width:26ch;color:inherit;opacity:.92}
+.pcard__row{display:flex;align-items:center;gap:12px;margin-top:auto}
+.price{font-variation-settings:"wdth" 75;font-weight:800;font-size:1.25rem}
+.price s{opacity:.6;font-weight:600;margin-left:.3em;font-size:.85em}
+.pcard .age{position:absolute;top:16px;left:16px;--r:-8deg}
+.add-btn{--bg:var(--paper);--fg:var(--ink);--sh:var(--fg)}
+
+/* carousel row (home) */
+.row-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(270px,1fr);gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px 4px 24px}
+.row-scroll > *{scroll-snap-align:start}
+
+/* ---------- STORY: one sunny day (pinned) ---------- */
+.day{position:relative;height:460vh}
+.day__pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.day__sky{position:absolute;inset:0}
+.day__svg{position:absolute;inset:0;width:100%;height:100%}
+.day__cards{position:absolute;left:clamp(16px,5vw,80px);top:50%;transform:translateY(-50%);width:min(440px,calc(100% - 32px));z-index:5}
+.beat{position:absolute;inset:auto 0 auto 0;top:0;transform:translateY(-50%);background:var(--paper);color:var(--ink);border-radius:var(--blob-lg);
+  padding:clamp(22px,3vw,36px);box-shadow:8px 8px 0 var(--ink);opacity:0;translate:0 30px;transition:opacity .45s var(--ease),translate .55s var(--spring);pointer-events:none}
+.beat.on{opacity:1;translate:0 0;pointer-events:auto}
+.beat__time{display:inline-block;margin-bottom:10px}
+.beat h3{margin-bottom:12px}
+.beat p{margin:0;color:var(--ink-2)}
+.beat .hand{display:block;margin-top:14px;font-size:1.45rem;color:var(--blush-d);transform:rotate(-3deg)}
+.day__progress{position:absolute;right:clamp(14px,3vw,40px);top:50%;transform:translateY(-50%);display:grid;gap:12px;z-index:5}
+.day__progress button{width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.55);border:2px solid var(--ink);transition:transform .2s,background .2s}
+.day__progress button.on{background:var(--sunny-s);transform:scale(1.4)}
+.day__intro{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:6;pointer-events:none;padding:16px}
+.day__intro h2{color:var(--ink);transition:opacity .4s,transform .4s}
+.walker{animation:walk .6s ease-in-out infinite alternate}
+@keyframes walk{to{transform:translateY(-6px)}}
+.leg-a{transform-origin:0 0;animation:legA .6s ease-in-out infinite alternate}
+.leg-b{transform-origin:0 0;animation:legA .6s ease-in-out infinite alternate-reverse}
+@keyframes legA{from{transform:rotate(14deg)}to{transform:rotate(-14deg)}}
+@media (max-width:760px){
+  .day{height:400vh}
+  .day__cards{top:84px;transform:none;left:16px}
+  .beat{top:0;transform:none;padding:18px 20px}
+  .beat p{font-size:.95rem}
+  .day__progress{top:auto;bottom:18px;right:50%;transform:translateX(50%);display:flex}
+}
+
+/* ---------- TILES: products land ---------- */
+.tiles{position:relative;height:190vh}
+.tiles__pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.tiles__head{padding-top:calc(var(--header-h) + 10px);text-align:center;position:relative;z-index:3}
+.tiles__head p{margin:10px auto 0;max-width:42ch;color:var(--ink-2)}
+.tiles__wall{position:absolute;left:0;right:0;bottom:0;height:30%;
+  background:
+   linear-gradient(90deg,rgba(255,255,255,.9) 3px,transparent 3px) 0 0/90px 90px,
+   linear-gradient(0deg,rgba(255,255,255,.9) 3px,transparent 3px) 0 0/90px 90px,
+   linear-gradient(180deg,#9EE0C6,#7FD1B3);
+}
+.tiles__ledge{position:absolute;left:0;right:0;bottom:30%;height:22px;background:#fff;box-shadow:0 6px 0 rgba(11,107,80,.25)}
+.drop{position:absolute;bottom:calc(30% + 18px);width:clamp(78px,8.5vw,128px);will-change:transform}
+.drop svg{width:100%;height:auto;filter:drop-shadow(6px 6px 0 rgba(43,26,74,.85))}
+.drop--1{left:26%}.drop--2{left:50%}.drop--3{right:26%}
+.tiles .bandaid{position:absolute;opacity:0;will-change:transform,opacity}
+.splash{position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;opacity:0}
+@media (max-width:760px){.drop--1{left:8%}.drop--3{right:8%}.tiles{height:160vh}.tiles__head h2{font-size:2rem}}
+
+/* ---------- RUB IN demo ---------- */
+.rub{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:center;padding:clamp(40px,6vw,90px) clamp(20px,5vw,80px)}
+.rub__stage{position:relative;aspect-ratio:1;max-width:520px;width:100%;justify-self:center;border-radius:50%;
+  background:var(--blush);box-shadow:10px 10px 0 var(--blush-d);touch-action:none;cursor:grab}
+.rub__stage:active{cursor:grabbing}
+.rub__stage svg,.rub__stage canvas{position:absolute;inset:0;width:100%;height:100%;border-radius:50%}
+.rub__meter{display:flex;align-items:center;gap:14px;margin:24px 0}
+.ring{width:74px;height:74px;flex:none}
+.ring circle{fill:none;stroke-width:9}
+.ring .bg{stroke:rgba(181,34,63,.18)}
+.ring .fg{stroke:var(--blush-d);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .2s}
+.rub__msg{font-variation-settings:"wdth" 75;font-weight:800;font-size:1.25rem}
+.rub__done{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.rub__done .sticker{opacity:0;transform:scale(.3) rotate(-20deg);transition:all .5s var(--spring)}
+.rub.done .rub__done .sticker{opacity:1;transform:scale(1) rotate(-8deg)}
+.hint-hand{position:absolute;width:70px;left:55%;top:55%;pointer-events:none;animation:rubHint 1.6s ease-in-out infinite}
+@keyframes rubHint{0%,100%{transform:translate(0,0) rotate(-10deg)}50%{transform:translate(-50px,-20px) rotate(5deg)}}
+.rub.touched .hint-hand{display:none}
+@media (max-width:860px){.rub{grid-template-columns:1fr}}
+
+/* ---------- GROWTH CHART ---------- */
+.grow{display:grid;grid-template-columns:minmax(260px,1fr) 1.15fr;gap:clamp(24px,5vw,80px);align-items:center;padding:clamp(40px,6vw,90px) clamp(20px,5vw,80px)}
+.door{position:relative;height:min(78vh,640px);border-radius:28px 28px 0 0;background:#FFF;border:14px solid #fff;
+  box-shadow:inset 0 0 0 3px var(--ink),8px 8px 0 var(--ink);overflow:hidden;
+  background:repeating-linear-gradient(90deg,#F4E7D4 0 22px,#EFDFC8 22px 24px)}
+.door__ruler{position:absolute;left:10px;top:0;bottom:0;width:46px}
+.door__mark{position:absolute;left:0;height:2px;background:var(--ink);opacity:.6;font-family:var(--f-hand);font-size:1.05rem}
+.door__mark span{position:absolute;left:0;top:-24px;white-space:nowrap}
+.door__kid{position:absolute;bottom:0;left:50%;transform:translateX(-50%);transition:height .45s var(--spring);height:40%}
+.door__kid svg{height:100%;width:auto}
+.door__line{position:absolute;left:6px;right:30%;height:3px;background:var(--blush-s);border-radius:3px;transition:bottom .45s var(--spring)}
+.door__line span{position:absolute;right:-6px;top:-30px;font-family:var(--f-hand);font-size:1.5rem;color:var(--blush-d);white-space:nowrap;transform:translateX(100%) rotate(-4deg)}
+.slider{width:100%;margin:22px 0 8px;-webkit-appearance:none;appearance:none;height:16px;border-radius:999px;background:linear-gradient(90deg,var(--sunny-s) var(--p,0%),rgba(255,255,255,.75) var(--p,0%));
+  border:3px solid var(--ink);outline-offset:6px}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;width:44px;height:44px;border-radius:50%;background:var(--paper);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:grab}
+.slider::-moz-range-thumb{width:38px;height:38px;border-radius:50%;background:var(--paper);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);cursor:grab}
+.ages{display:flex;justify-content:space-between;font-variation-settings:"wdth" 75;font-weight:800;opacity:.75}
+.stage-card{margin-top:22px;background:var(--paper);color:var(--ink);border-radius:var(--blob-lg);padding:clamp(20px,3vw,32px);box-shadow:7px 7px 0 var(--ink)}
+.stage-card h3{margin-bottom:8px}
+.stage-card .ritual{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.stage-swap{animation:swap .4s var(--spring)}
+@keyframes swap{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+@media (max-width:860px){.grow{grid-template-columns:1fr}.door{height:420px}}
+
+/* ---------- FOUNDER letter ---------- */
+.founder{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:center;padding:clamp(48px,7vw,110px) clamp(20px,5vw,80px)}
+.founder h2{color:var(--ink)}
+.founder .lead{color:var(--ink-2);margin:18px 0 26px}
+.envelope{position:relative;width:min(480px,100%);aspect-ratio:1.45;justify-self:center;margin-top:120px;perspective:900px}
+.env-back{position:absolute;inset:0;background:var(--blush-s);border-radius:18px}
+.env-front{position:absolute;inset:0;z-index:3;border-radius:18px;overflow:hidden;pointer-events:none}
+.env-front::before{content:"";position:absolute;inset:0;background:linear-gradient(to top right,#F0627A 50%,transparent 50.4%) left/50.5% 100% no-repeat,
+  linear-gradient(to top left,#EE5670 50%,transparent 50.4%) right/50.5% 100% no-repeat}
+.env-flap{position:absolute;left:0;right:0;top:0;height:58%;z-index:4;transform-origin:50% 0;transform:rotateX(var(--flap,0deg));transform-style:preserve-3d}
+.env-flap::before{content:"";position:absolute;inset:0;background:#E44A64;clip-path:polygon(0 0,100% 0,50% 100%);border-radius:18px 18px 0 0}
+.env-seal{position:absolute;left:50%;top:52%;width:62px;height:62px;margin-left:-31px;border-radius:50%;background:var(--sunny);border:3px solid #fff;box-shadow:3px 3px 0 var(--ink);
+  display:grid;place-items:center;z-index:5;transition:opacity .3s}
+.letter{position:absolute;left:6%;right:6%;top:6%;height:150%;z-index:2;background:#FFFDF6;border-radius:12px;padding:26px 26px;color:var(--ink);
+  transform:translateY(var(--up,0%));box-shadow:0 2px 0 rgba(0,0,0,.05);
+  background-image:repeating-linear-gradient(transparent 0 33px,rgba(91,54,184,.16) 33px 34px)}
+.letter p{font-family:var(--f-hand);font-size:clamp(1.12rem,1.6vw,1.4rem);line-height:34px;margin:0}
+.letter .sig{margin-top:8px;color:var(--blush-d);font-size:1.6rem}
+@media (max-width:860px){.founder{grid-template-columns:1fr}.envelope{margin-top:150px}}
+
+/* ---------- FOCUS carousel (pinky promises) ---------- */
+.focus{position:relative;height:clamp(380px,46vw,480px);margin-top:40px;touch-action:pan-y}
+.slide{position:absolute;left:50%;top:50%;width:min(620px,84vw);min-height:min(340px,70vw);border-radius:var(--blob-lg);
+  background:var(--bg);color:var(--fg);box-shadow:8px 8px 0 var(--fg);display:grid;place-items:center;text-align:center;padding:clamp(24px,4vw,50px) clamp(24px,6vw,90px);
+  transform:translate(-50%,-50%) scale(.68);opacity:0;transition:all .5s cubic-bezier(.25,.8,.25,1);z-index:1}
+.slide.active{transform:translate(-50%,-50%) scale(1) rotate(-1.5deg);opacity:1;z-index:3}
+.slide.prev{transform:translate(-118%,-50%) scale(.72) rotate(-6deg);opacity:1;z-index:2}
+.slide.next{transform:translate(18%,-50%) scale(.72) rotate(6deg);opacity:1;z-index:2}
+.slide .pinky{width:62px;margin:0 auto 12px}
+.slide h3{font-size:clamp(1.6rem,3vw,2.5rem)}
+.slide p{margin:12px 0 0;max-width:38ch}
+.focus__nav{display:flex;justify-content:center;gap:14px;margin-top:22px}
+.dots{display:flex;gap:10px;align-items:center}
+.dots button{width:12px;height:12px;border-radius:50%;background:rgba(43,26,74,.25);transition:all .25s}
+.dots button.on{width:34px;border-radius:8px;background:var(--ink)}
+
+/* ---------- insta strip ---------- */
+.gram{display:flex;gap:22px;width:max-content;animation:marq 48s linear infinite;padding:20px 0}
+.gram-wrap{overflow:hidden}
+.gram-wrap:hover .gram{animation-play-state:paused}
+.gram__tile{width:clamp(200px,20vw,280px);aspect-ratio:4/5;border-radius:28px;display:grid;place-items:center;position:relative;overflow:hidden;
+  transition:transform .2s var(--ease),box-shadow .2s;background:var(--bg);color:var(--fg)}
+.gram__tile:hover{transform:rotate(5deg);box-shadow:8px 8px 0 var(--blush-s)}
+.gram__tile svg{width:62%}
+.gram__tile figcaption{position:absolute;left:14px;bottom:14px;right:14px;font-family:var(--f-hand);font-size:1.3rem;line-height:1.1}
+
+/* ---------- footer ---------- */
+.foot{background:var(--ink);color:#fff;margin:var(--gutter);border-radius:var(--blob-lg);padding:clamp(36px,6vw,80px) clamp(20px,5vw,80px) 30px;position:relative;overflow:hidden}
+.foot__big{font-family:var(--f-display);font-size:clamp(4rem,16vw,15rem);line-height:.8;color:var(--sunny);margin:30px 0 10px;letter-spacing:-.01em;user-select:none}
+.foot__grid{display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:clamp(24px,4vw,60px)}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.foot ul a{text-decoration:none;font-variation-settings:"wdth" 75;font-weight:800;font-size:1.3rem;display:inline-block;transition:transform .2s var(--spring),color .2s}
+.foot ul a:hover{transform:translateX(6px);color:var(--sunny)}
+.foot h3{font-size:1.9rem;margin-bottom:10px;color:#fff}
+.nl{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.nl input{flex:1 1 220px;min-height:56px;border-radius:var(--blob);border:0;padding:0 20px;font:inherit;font-size:1.05rem;background:var(--lilac);color:var(--ink)}
+.nl input::placeholder{color:var(--lilac-d)}
+.foot__claims{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.foot__claims .bandaid{box-shadow:none}
+.foot__small{margin-top:30px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.88rem;opacity:.75}
+@media (max-width:860px){.foot__grid{grid-template-columns:1fr 1fr}.foot__grid > :last-child{grid-column:1/-1}}
+
+/* ---------- cart drawer ---------- */
+.cart{position:fixed;inset:0;z-index:80;pointer-events:none}
+.cart__scrim{position:absolute;inset:0;background:rgba(43,26,74,.45);opacity:0;transition:opacity .3s}
+.cart__panel{position:absolute;right:var(--gutter);top:var(--gutter);bottom:var(--gutter);width:min(440px,calc(100% - 24px));background:var(--cloud);
+  border-radius:var(--blob-lg);box-shadow:8px 8px 0 var(--ink);transform:translateX(115%);transition:transform .5s var(--spring);display:flex;flex-direction:column;overflow:hidden}
+.cart.open{pointer-events:auto}.cart.open .cart__scrim{opacity:1}.cart.open .cart__panel{transform:none}
+.cart__head{display:flex;justify-content:space-between;align-items:center;padding:24px 24px 12px}
+.cart__items{flex:1;overflow:auto;padding:6px 24px;display:grid;gap:14px;align-content:start}
+.citem{display:grid;grid-template-columns:72px 1fr auto;gap:14px;align-items:center;background:var(--paper);border-radius:22px;padding:12px}
+.citem__img{height:72px;border-radius:16px;display:grid;place-items:center;background:var(--bg)}
+.citem__img svg{height:62px;width:auto}
+.citem h4{margin:0;font-size:1.05rem;font-variation-settings:"wdth" 75;font-weight:800;line-height:1.15}
+.qty{display:inline-flex;align-items:center;border:2px solid var(--ink);border-radius:999px;overflow:hidden;margin-top:6px}
+.qty button{width:34px;height:32px;font-weight:800;font-size:1.1rem}
+.qty button:hover{background:var(--sunny)}
+.qty span{min-width:26px;text-align:center;font-weight:800}
+.qty--lg button{width:48px;height:48px}.qty--lg span{min-width:36px;font-size:1.15rem}
+.cart__foot{padding:18px 24px 24px;border-top:3px dashed rgba(43,26,74,.2)}
+.cart__total{display:flex;justify-content:space-between;font-variation-settings:"wdth" 75;font-weight:800;font-size:1.35rem;margin-bottom:12px}
+.cart__offer{background:var(--sunny);color:var(--sunny-d);border-radius:16px;padding:10px 14px;font-weight:700;font-size:.95rem;margin-bottom:12px}
+.empty{text-align:center;padding:30px 10px;display:grid;justify-items:center;gap:12px}
+.empty svg{width:120px}
+
+/* fly to bag */
+.fly{position:fixed;z-index:90;width:60px;pointer-events:none;transition:transform .75s cubic-bezier(.5,-.4,.7,1),opacity .75s}
+
+/* ---------- toast ---------- */
+.toast{position:fixed;left:50%;bottom:22px;z-index:95;transform:translate(-50%,calc(100% + 60px));visibility:hidden;background:var(--ink);color:#fff;padding:14px 22px;border-radius:var(--blob);
+  box-shadow:5px 5px 0 var(--blush-s);font-weight:700;transition:transform .45s var(--spring);max-width:calc(100% - 32px)}
+.toast.show{transform:translate(-50%,0);visibility:visible}
+
+/* ---------- bubbles cursor + confetti ---------- */
+.bubble{position:fixed;z-index:99;pointer-events:none;border-radius:50%;border:2px solid rgba(91,54,184,.5);
+  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.95) 0 18%,rgba(207,226,255,.35) 40%,rgba(227,215,255,.25));animation:bub 1.1s ease-out forwards}
+@keyframes bub{to{transform:translate(var(--dx),-70px) scale(1.4);opacity:0}}
+.confetti{position:fixed;z-index:99;pointer-events:none;width:16px;height:16px;animation:conf 1.4s cubic-bezier(.2,.6,.4,1) forwards}
+@keyframes conf{to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot));opacity:0}}
+.sparkle{position:absolute;pointer-events:none;width:18px;height:18px;animation:spark .7s ease-out forwards;z-index:5}
+@keyframes spark{from{transform:scale(0) rotate(0)}50%{transform:scale(1) rotate(90deg)}to{transform:scale(0) rotate(180deg);opacity:0}}
+
+/* ---------- reveal (used sparingly: stickers + card groups) ---------- */
+.pop-in{opacity:0;transform:scale(.4) rotate(-8deg)}
+.pop-in.in{animation:burst .7s var(--spring) forwards;animation-delay:calc(var(--i,0) * 70ms)}
+@keyframes burst{0%{opacity:0;transform:scale(.3) rotate(-5deg)}60%{opacity:1;transform:scale(1.06) rotate(2deg)}100%{opacity:1;transform:scale(1) rotate(var(--r,0deg))}}
+
+/* ---------- inner pages ---------- */
+.page-hero{padding:calc(var(--header-h) + 50px) clamp(20px,5vw,80px) clamp(46px,6vw,80px);position:relative;overflow:hidden}
+.page-hero .lead{margin-top:16px}
+.page-hero .deco{position:absolute;right:clamp(10px,5vw,80px);bottom:-20px;width:clamp(160px,22vw,300px);opacity:1}
+.page-hero h1{max-width:min(14ch,64%)!important}
+.page-hero .lead{max-width:min(40ch,60%)}
+@media (max-width:760px){.page-hero .deco{display:none}.page-hero h1{max-width:none!important}.page-hero .lead{max-width:none}}
+.tabs{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 32px}
+.tab{--bg:var(--paper);--fg:var(--ink);--sh:var(--ink)}
+.tab[aria-pressed="true"]{--bg:var(--ink);--fg:#fff;--sh:var(--blush-s)}
+
+/* PDP */
+.pdp{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,4vw,64px);padding:calc(var(--header-h) + 30px) clamp(16px,4vw,60px) 40px;align-items:start}
+.gallery{display:grid;grid-template-columns:110px 1fr;gap:16px;position:sticky;top:calc(var(--header-h) + 10px)}
+.gallery__main{border-radius:var(--blob-lg);background:var(--bg);aspect-ratio:1;display:grid;place-items:center;position:relative;overflow:hidden;box-shadow:8px 8px 0 var(--fg)}
+.gallery__main > svg{height:78%;width:auto;transition:transform .45s var(--spring)}
+.gallery__main:hover > svg{transform:rotate(-5deg) scale(1.04)}
+.gallery__thumbs{display:grid;gap:12px;align-content:start}
+.thumb{aspect-ratio:1;border-radius:22px;background:var(--bg);display:grid;place-items:center;border:3px solid transparent;transition:transform .2s}
+.thumb svg{height:80%;width:auto}
+.thumb[aria-pressed="true"]{border-color:var(--ink)}
+.thumb:hover{transform:rotate(-4deg)}
+.pdp h1{font-size:clamp(2.6rem,5.4vw,4.8rem);margin:12px 0 8px}
+.pdp__sub{font-size:1.2rem;color:var(--ink-2);max-width:40ch}
+.pdp__buy{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin:22px 0}
+.pdp__claims{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 24px}
+.acc{border-radius:28px;background:var(--paper);overflow:hidden;box-shadow:6px 6px 0 var(--ink)}
+.acc details{border-bottom:3px solid var(--cloud)}
+.acc details:last-child{border-bottom:0}
+.acc summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;padding:20px 24px;
+  font-variation-settings:"wdth" 75;font-weight:800;font-size:1.25rem}
+.acc summary::-webkit-details-marker{display:none}
+.pm{position:relative;width:22px;height:22px;flex:none}
+.pm::before,.pm::after{content:"";position:absolute;left:50%;top:50%;background:currentColor;border-radius:2px;transition:transform .3s var(--ease),opacity .3s}
+.pm::before{width:20px;height:3px;margin:-1.5px 0 0 -10px}
+.pm::after{width:3px;height:20px;margin:-10px 0 0 -1.5px}
+details[open] .pm::after{transform:rotate(90deg);opacity:0}
+.acc__body{padding:0 24px 22px;color:var(--ink-2)}
+.acc__body ol,.acc__body ul{padding-left:1.2em;margin:0}
+.acc__body li{margin-bottom:.4em}
+.sticky-buy{position:fixed;left:var(--gutter);right:var(--gutter);bottom:var(--gutter);z-index:40;background:var(--paper);border-radius:var(--blob);box-shadow:5px 5px 0 var(--ink);
+  display:none;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px 10px 18px;transform:translateY(150%);transition:transform .4s var(--spring)}
+.sticky-buy.show{transform:none}
+@media (max-width:900px){
+  .pdp{grid-template-columns:1fr}
+  .gallery{position:relative;top:0;grid-template-columns:1fr}
+  .gallery__thumbs{grid-template-columns:repeat(4,1fr);order:2}
+  .sticky-buy{display:flex}
+}
+
+/* timeline */
+.tl{position:relative;padding:20px 0 60px;max-width:1100px;margin:0 auto}
+.tl__line{position:absolute;left:50%;top:0;bottom:0;width:8px;margin-left:-4px;border-radius:4px;background:rgba(43,26,74,.12);overflow:hidden}
+.tl__fill{position:absolute;left:0;right:0;top:0;height:var(--fill,0%);background:var(--blush-s);border-radius:4px}
+.tl__item{position:relative;width:50%;padding:30px 50px 30px 0}
+.tl__item:nth-child(odd){margin-left:50%;padding:30px 0 30px 50px}
+.tl__card{background:var(--bg);color:var(--fg);border-radius:var(--blob-lg);padding:clamp(22px,3vw,36px);box-shadow:7px 7px 0 var(--fg)}
+.tl__card h3{margin:8px 0 10px}
+.tl__card p{margin:0}
+.tl__pin{position:absolute;top:50px;right:-22px;width:44px;height:44px;border-radius:50%;background:var(--paper);border:4px solid var(--ink);display:grid;place-items:center;
+  font-family:var(--f-display);z-index:2}
+.tl__item:nth-child(odd) .tl__pin{right:auto;left:-22px}
+@media (max-width:760px){
+  .tl__line{left:22px}
+  .tl__item,.tl__item:nth-child(odd){width:100%;margin-left:0;padding:20px 0 20px 64px}
+  .tl__pin,.tl__item:nth-child(odd) .tl__pin{left:0;right:auto}
+}
+
+/* quiz */
+.quiz{max-width:880px;margin:0 auto;padding:0 16px 90px}
+.quiz__bar{height:16px;border-radius:999px;background:rgba(43,26,74,.1);overflow:hidden;margin-bottom:30px;border:3px solid var(--ink)}
+.quiz__bar span{display:block;height:100%;background:var(--sunny-s);width:var(--w,0%);transition:width .5s var(--spring)}
+.quiz__q h2{font-size:clamp(2rem,4.6vw,3.6rem);margin-bottom:24px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.opt{--bg:var(--paper);--fg:var(--ink);text-align:left;border-radius:var(--blob-lg);background:var(--bg);color:var(--fg);padding:22px;box-shadow:6px 6px 0 var(--fg);
+  transition:transform .18s var(--ease),box-shadow .18s;display:grid;gap:6px}
+.opt:hover{transform:translate(6px,6px);box-shadow:0 0 0 var(--fg)}
+.opt b{font-family:var(--f-display);font-weight:400;font-size:1.6rem;line-height:1}
+.opt .hand{font-size:1.25rem;opacity:.85}
+
+/* ingredients */
+.switch{display:inline-flex;background:var(--paper);border-radius:999px;padding:6px;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);margin-top:20px}
+.switch button{padding:.6em 1.2em;border-radius:999px;font-variation-settings:"wdth" 75;font-weight:800;font-size:1.05rem;transition:background .25s,color .25s}
+.switch button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.ingr{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
+.icard{border-radius:var(--blob-lg);background:var(--bg);color:var(--fg);padding:28px;box-shadow:7px 7px 0 var(--fg);min-height:260px;display:flex;flex-direction:column}
+.icard svg{width:64px;height:64px;margin-bottom:14px}
+.icard h3{margin-bottom:10px}
+.icard p{margin:0}
+.icard .kid{font-family:var(--f-hand);font-size:1.45rem;line-height:1.25}
+.never{display:flex;flex-wrap:wrap;gap:22px;justify-content:center;margin-top:30px}
+.never__item{position:relative;font-family:var(--f-display);font-size:clamp(2rem,5vw,4rem);color:var(--ink);padding:0 10px}
+.never__item svg{position:absolute;left:-4%;top:50%;width:108%;height:60%;transform:translateY(-50%);overflow:visible}
+.never__item path{fill:none;stroke:var(--blush-s);stroke-width:9;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;transition:stroke-dashoffset 1s var(--ease)}
+.never.in .never__item path{stroke-dashoffset:0}
+.never.in .never__item:nth-child(2) path{transition-delay:.25s}
+.never.in .never__item:nth-child(3) path{transition-delay:.5s}
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:18px;margin-top:30px}
+.cert{background:var(--paper);border-radius:28px;padding:22px 16px;text-align:center;display:grid;justify-items:center;gap:10px;box-shadow:5px 5px 0 var(--ink);
+  font-variation-settings:"wdth" 75;font-weight:800;line-height:1.15;transition:transform .25s var(--spring)}
+.cert:hover{transform:rotate(-4deg) scale(1.05)}
+.cert svg{width:56px;height:56px}
+
+/* faq */
+.faq{max-width:980px;margin:0 auto;padding:0 16px 80px;display:grid;gap:44px}
+.faq h2{font-size:clamp(2rem,4vw,3.2rem);margin-bottom:16px}
+
+/* notes */
+.notes{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding-bottom:80px}
+.note{border-radius:var(--blob-lg);overflow:hidden;background:var(--paper);box-shadow:6px 6px 0 var(--ink);text-align:left;display:flex;flex-direction:column;transition:transform .22s var(--ease)}
+.note:hover{transform:translateY(-6px) rotate(-1.5deg)}
+.note__cover{aspect-ratio:16/10;display:grid;place-items:center;background:var(--bg)}
+.note__cover svg{width:40%}
+.note__body{padding:20px 22px 24px}
+.note__body h3{font-size:1.55rem;margin:8px 0}
+.note__meta{font-variation-settings:"wdth" 75;font-weight:800;color:var(--ink-2);font-size:.95rem}
+.reader{position:fixed;inset:0;z-index:85;display:grid;place-items:center;padding:16px;pointer-events:none}
+.reader__scrim{position:absolute;inset:0;background:rgba(43,26,74,.5);opacity:0;transition:opacity .3s}
+.reader__card{position:relative;background:var(--cloud);border-radius:var(--blob-lg);max-width:680px;width:100%;max-height:86vh;overflow:auto;padding:clamp(24px,4vw,44px);
+  box-shadow:8px 8px 0 var(--ink);transform:scale(.85) translateY(30px);opacity:0;transition:all .4s var(--spring)}
+.reader.open{pointer-events:auto}.reader.open .reader__scrim{opacity:1}.reader.open .reader__card{transform:none;opacity:1}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .hero h1 .line > span{transform:none}
+  .pop-in{opacity:1;transform:none}
+}
+
+
+/* ==========================================================
+   SOUND HINT — lives inside the header, so it hides and
+   comes back with it. Gone for good once sound is unlocked.
+   ========================================================== */
+.sound-hint{position:absolute;top:calc(100% - 2px);right:clamp(12px,1.6vw,24px);pointer-events:none;
+  background:var(--paper);color:var(--ink);border-radius:var(--blob);padding:8px 14px;box-shadow:4px 4px 0 var(--ink);
+  font-family:var(--f-hand);font-size:1.15rem;line-height:1.1;white-space:nowrap;transform:rotate(2deg);
+  animation:hintIn .6s var(--spring) .8s both;transition:opacity .3s,transform .3s}
+.sound-hint::before{content:"";position:absolute;top:-7px;right:96px;width:14px;height:14px;background:var(--paper);transform:rotate(45deg);border-radius:3px}
+.sound-hint.gone{opacity:0;transform:translateY(-8px) rotate(2deg);visibility:hidden;transition:opacity .3s,transform .3s,visibility 0s .3s}
+@keyframes hintIn{from{opacity:0;transform:scale(.6) rotate(-6deg)}to{opacity:1;transform:rotate(2deg)}}
+@media (max-width:820px){
+  .sound-hint{font-size:1rem;padding:6px 12px;top:calc(100% - 6px)}
+  .sound-hint::before{right:118px}
+}
+
+/* ==========================================================
+   TOUCH: no sticky hover tilts; press feedback on :active instead
+   ========================================================== */
+@media (hover:none){
+  .pcard:hover{transform:none;box-shadow:0 0 0 var(--fg)}
+  .pcard:hover .pcard__img svg,.gallery__main:hover > svg{transform:none}
+  .btn:hover{transform:none;box-shadow:5px 5px 0 var(--sh)}
+  .btn--sm:hover{box-shadow:4px 4px 0 var(--sh)}
+  .sticker:hover{transform:rotate(var(--r,-6deg))}
+  .gram__tile:hover{transform:none;box-shadow:none}
+  .note:hover,.cert:hover,.thumb:hover,.logo:hover,.menu__links a:hover,.foot ul a:hover{transform:none}
+  .opt:hover{transform:none;box-shadow:6px 6px 0 var(--fg)}
+  .menu__prod:hover{transform:none;box-shadow:5px 5px 0 var(--fg)}
+  .marquee:hover .marquee__track,.gram-wrap:hover .gram{animation-play-state:running}
+  .btn:active{transform:translate(4px,4px) scale(.97);box-shadow:0 0 0 var(--sh)}
+  .pcard:active{transform:scale(.97) rotate(-1deg)}
+  .opt:active{transform:translate(6px,6px);box-shadow:0 0 0 var(--fg)}
+  .note:active,.cert:active,.menu__prod:active,.thumb:active,.gram__tile:active{transform:scale(.96)}
+  .sticker:active{transform:rotate(calc(var(--r,-6deg) * -1)) scale(1.08)}
+}
+
+/* bigger tap targets for dots */
+.day__progress{gap:2px}
+.day__progress button,.day__progress button.on{width:32px;height:32px;display:grid;place-items:center;background:none;border:0;transform:none}
+.day__progress button::before{content:"";width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.6);border:2px solid var(--ink);transition:transform .2s,background .2s}
+.day__progress button.on::before{background:var(--sunny-s);transform:scale(1.4)}
+.dots{gap:0}
+.dots button{box-sizing:content-box;padding:10px 5px;background-clip:content-box}
+
+/* story beats: outgoing card leaves fast, incoming arrives after */
+.beat{transition:opacity .18s var(--ease),translate .25s var(--ease)}
+.beat.on{transition:opacity .4s var(--ease) .12s,translate .55s var(--spring) .12s}
+.beat:not(.on){translate:0 -16px}
+
+/* ==========================================================
+   MOBILE PASS
+   ========================================================== */
+@media (max-width:820px){
+  .announce{font-size:.85rem;padding:.5em 12px}
+  .section{padding-block:56px}
+  .panel{border-radius:34px 40px 30px 38px / 38px 30px 40px 34px}
+  h2{font-size:clamp(2.1rem,9vw,3rem)}
+  .lead{font-size:1.06rem}
+  .marquee__item{font-size:1.25rem;gap:18px;padding-right:18px}
+  .row-scroll{grid-auto-columns:78%;gap:16px;padding-inline:4px;scroll-padding-inline:4px}
+  .pcard{padding:18px 16px 20px}
+  .pcard__img{height:210px}.pcard__img svg{height:196px}
+  .pcard__row{gap:10px;flex-wrap:wrap;justify-content:center}
+  .cards{grid-template-columns:1fr 1fr;gap:14px}
+  .cards .pcard .pcard__img{height:150px}.cards .pcard .pcard__img svg{height:140px}
+  .cards .pcard h3{font-size:1.3rem}
+  .cards .pcard .pcard__sub{display:none}
+  .cards .pcard .age{font-size:.8rem;top:10px;left:10px}
+  .cards .pcard .btn--sm{min-height:44px;padding:.6em .9em;font-size:.95rem}
+  .day{height:340vh}
+  .tiles{height:150vh}
+  .tiles__head h2{font-size:1.8rem}
+  .tiles__head .lead{font-size:.95rem}
+  .tiles .bandaid.m-hide{display:none}
+  .tiles .bandaid{font-size:.85rem}
+  .tiles__wall{height:28%}.tiles__ledge{bottom:28%}.drop{bottom:calc(28% + 18px)}
+  .rub{padding:34px 20px 40px;gap:20px}
+  .rub__stage{width:84%}
+  .rub__meter{margin:16px 0}
+  .grow{padding:34px 20px 40px}
+  .door{height:360px}
+  .founder{padding:40px 20px 56px}
+  .envelope{width:92%;margin-top:130px}
+  .letter{padding:18px}
+  .focus{height:400px;margin-top:24px}
+  .slide{width:82vw;padding:26px 22px}
+  .slide.prev{transform:translate(-112%,-50%) scale(.72) rotate(-6deg)}
+  .slide.next{transform:translate(12%,-50%) scale(.72) rotate(6deg)}
+  .gram__tile{width:190px;border-radius:22px}
+  .switch{flex-wrap:nowrap;max-width:100%}
+  .switch button{padding:.6em .9em;font-size:.98rem;white-space:nowrap}
+  .ingr{grid-template-columns:1fr;gap:16px}
+  .icard{min-height:0;padding:22px}
+  .never{gap:6px 18px}
+  .certs{grid-template-columns:1fr 1fr;gap:12px}
+  .notes{grid-template-columns:1fr}
+  .foot{padding:34px 20px 24px}
+  .foot ul{gap:0}
+  .foot ul a{font-size:1.15rem;padding:9px 0}
+  .foot__claims{gap:8px}
+  .foot__claims .bandaid{font-size:.8rem;padding:.4em .85em}
+  .foot__big{font-size:22vw;margin-top:22px}
+  .page-hero{padding:calc(var(--header-h) + 30px) 20px 36px}
+  .tabs{gap:10px;margin:20px 0 22px}
+  .tab{min-height:44px}
+  .pdp{padding:calc(var(--header-h) + 16px) 16px 24px}
+  .pdp h1{font-size:2.6rem}
+  .pdp__buy{gap:12px}
+  .pdp__buy #pdpAdd{flex:1 1 100%}
+  .acc summary{padding:18px 18px;font-size:1.1rem}
+  .acc__body{padding:0 18px 18px}
+  .quiz{padding:0 16px 60px}
+  .opts{grid-template-columns:1fr;gap:12px}
+  .opt{padding:16px 18px}
+  .opt b{font-size:1.4rem}
+  .tl__card{padding:20px}
+  .cart__panel{right:8px;left:8px;width:auto;top:8px;bottom:calc(8px + env(safe-area-inset-bottom))}
+  .menu__panel{padding:24px 20px}
+  .menu__links a{font-size:2.2rem}
+  .menu__prods{grid-template-columns:1fr 1fr;gap:10px}
+  .menu__prod{border-radius:22px;padding:10px}
+  .sticky-buy{bottom:calc(var(--gutter) + env(safe-area-inset-bottom))}
+  body.has-sticky .toast{bottom:calc(96px + env(safe-area-inset-bottom))}
+}
+@media (max-width:520px){
+  .hero{padding:calc(var(--header-h) + 22px) 20px 30px;min-height:auto}
+  .hero h1{font-size:clamp(2.9rem,14vw,4rem)}
+  .hero .lead{margin:14px 0 20px}
+  .hero__ctas{flex-wrap:nowrap;gap:10px}
+  .hero__ctas .btn{flex:1 1 0;font-size:1rem;padding:.8em .6em;min-height:52px}
+  .hero__stage{width:100%;margin-top:6px}
+  .spin-badge{width:96px}
+  .hero .sticker{font-size:.9rem}
+  .nav{gap:8px}
+  .icon-btn{width:48px;height:48px;min-height:48px}
+  .logo{font-size:1.35rem}
+}
+@media (max-width:370px){
+  .cards{grid-template-columns:1fr}
+  .hero__ctas{flex-wrap:wrap}
+}
+@media (max-width:900px){ body.has-sticky .foot{margin-bottom:calc(92px + env(safe-area-inset-bottom))} }
+</style>
+</head>
+<body>
+<a class="sr-only" href="#app">Skip to content</a>
+<div class="announce"><span class="hide-sm">Festive offer: First Glow Ritual Kit at ₹599, was ₹945. Buy 3 kits, get 1 free.</span><span class="show-sm">First Glow Kit at ₹599. Buy 3, get 1 free.</span> <a href="#/product/first-glow-kit">See the kit</a></div>
+
+<header class="header">
+  <a class="logo" href="#/" aria-label="Little Luxe home"><span id="logoDot"></span>little luxe</a>
+  <nav class="nav" aria-label="Main">
+    <a class="btn btn--ghost hide-sm" href="#/shop">Shop</a>
+    <a class="btn btn--ghost hide-sm" href="#/story">Our story</a>
+    <a class="btn btn--sun hide-sm" href="#/start-here">Start here</a>
+    <button class="btn btn--ghost icon-btn sound-btn" aria-pressed="true" aria-label="Sound on. Turn sounds off"><span class="snd-icon"></span></button>
+    <button class="btn btn--ghost icon-btn" id="menuBtn" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span id="menuIcon" style="display:contents"></span></button>
+    <button class="btn icon-btn bag-btn" data-open-cart aria-label="Open bag"><span id="bagIcon" style="display:contents"></span><span class="bag-count" hidden>0</span></button>
+  </nav>
+  <div class="sound-hint" id="soundHint" aria-hidden="true"><span class="hide-sm">tap anywhere to hear the little sounds</span><span class="show-sm">tap anywhere for little sounds</span></div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <div class="menu__scrim" data-close-menu></div>
+  <div class="menu__panel" role="dialog" aria-label="Menu">
+    <button class="btn btn--ghost icon-btn menu__close" data-close-menu aria-label="Close menu"><span class="x-icon" style="display:contents"></span></button>
+    <div class="menu__grid">
+      <ul class="menu__links">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/shop">Shop</a></li>
+        <li><a href="#/story">Our story</a></li>
+        <li><a href="#/start-here">Start here</a></li>
+        <li><a href="#/inside">What's inside</a></li>
+        <li><a href="#/faq">FAQ</a></li>
+        <li><a href="#/skin-notes">Skin Notes</a></li>
+      </ul>
+      <div class="menu__prods" id="menuProds"></div>
+    </div>
+  </div>
+</div>
+
+<main id="app" tabindex="-1"></main>
+
+<div id="footMarquee"></div>
+<footer class="foot">
+  <div class="foot__grid">
+    <ul aria-label="Pages">
+      <li><a href="#/shop">Shop all</a></li><li><a href="#/story">Our story</a></li><li><a href="#/start-here">Start here</a></li>
+      <li><a href="#/inside">What's inside</a></li><li><a href="#/faq">FAQ</a></li><li><a href="#/skin-notes">Skin Notes</a></li>
+    </ul>
+    <ul aria-label="Products">
+      <li><a href="#/product/glow-shield">Glow Shield</a></li><li><a href="#/product/blush-block">Blush &amp; Block</a></li>
+      <li><a href="#/product/cloud-mist">Cloud Mist Gel</a></li><li><a href="#/product/first-glow-kit">First Glow Kit</a></li>
+    </ul>
+    <div>
+      <h3>Get the Sunday skin note.</h3>
+      <p style="opacity:.85;max-width:44ch">One short email a week: seasonal sun tips, new launches and the odd offer.</p>
+      <form class="nl" id="nl" novalidate><label class="sr-only" for="nlEmail">Email address</label><input id="nlEmail" type="email" placeholder="Your email" autocomplete="email"><button class="btn btn--sun" type="submit">Sign me up</button></form>
+      <p class="hand" id="nlMsg" style="font-size:1.4rem;color:var(--sunny);margin-top:10px" aria-live="polite"></p>
+    </div>
+  </div>
+  <div class="foot__claims" id="footClaims"></div>
+  <div class="foot__big" aria-hidden="true">little luxe</div>
+  <div class="foot__small"><span>© 2026 Little Luxe. Made in India, for Indian skin.</span><span>Care that grows with them.</span></div>
+</footer>
+
+<div class="cart" id="cart" aria-hidden="true">
+  <div class="cart__scrim" data-close-cart></div>
+  <aside class="cart__panel" role="dialog" aria-label="Your bag">
+    <div class="cart__head"><h3>Your bag</h3><button class="btn btn--ghost icon-btn btn--sm" style="width:44px" data-close-cart aria-label="Close bag"><span class="x-icon" style="display:contents"></span></button></div>
+    <div class="cart__items" id="cartItems"></div>
+    <div class="cart__foot" id="cartFoot">
+      <div class="cart__offer" id="cartOffer"></div>
+      <div class="cart__total"><span>Subtotal</span><span id="cartTotal">₹0</span></div>
+      <button class="btn" id="checkout" style="width:100%">Go to checkout</button>
+    </div>
+  </aside>
+</div>
+
+<div class="reader" id="reader" aria-hidden="true">
+  <div class="reader__scrim" data-close-reader></div>
+  <div class="reader__card" role="dialog" aria-label="Skin note">
+    <button class="btn btn--ghost icon-btn btn--sm" style="position:absolute;top:16px;right:16px;width:44px" data-close-reader aria-label="Close note"><span class="x-icon" style="display:contents"></span></button>
+    <div id="readerBody"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>/* ==========================================================
+   LITTLE LUXE — illustration library (inline SVG)
+   SWAP: replace any ART.* call with <img src="..."> of real
+   packshots / lifestyle photos when available.
+   ========================================================== */
+const C = {
+  ink:'#2B1A4A', paper:'#FFFFFF', cloud:'#F7F3FF',
+  sunny:'#FFE68F', sunnyD:'#8A5200', sunnyS:'#F2B705',
+  blush:'#FFD0C7', blushD:'#B5223F', blushS:'#E2405A',
+  mint:'#C9F0DF', mintD:'#0B6B50', mintS:'#17A57C',
+  sky:'#CFE2FF', skyD:'#2449B8', skyS:'#4F7BF0',
+  lilac:'#E3D7FF', lilacD:'#5B36B8', lilacS:'#8C67E8',
+  skin:'#C68A5E', skin2:'#A86F47'
+};
+const PAL = {
+  sunny:{l:C.sunny,d:C.sunnyD,s:C.sunnyS},
+  blush:{l:C.blush,d:C.blushD,s:C.blushS},
+  mint:{l:C.mint,d:C.mintD,s:C.mintS},
+  sky:{l:C.sky,d:C.skyD,s:C.skyS},
+  lilac:{l:C.lilac,d:C.lilacD,s:C.lilacS}
+};
+const FD = `font-family="Bagel Fat One, Arial Rounded MT Bold, sans-serif"`;
+const FU = `font-family="Bricolage Grotesque, system-ui, sans-serif" font-weight="800"`;
+
+const ART = {};
+
+/* ---- small icons ---- */
+ART.sun = (fill=C.sunnyS, size=24) => `<svg viewBox="0 0 24 24" width="${size}" height="${size}" aria-hidden="true"><g fill="${fill}"><circle cx="12" cy="12" r="5.2"/>${[0,45,90,135,180,225,270,315].map(a=>`<rect x="11" y="0.8" width="2" height="4.4" rx="1" transform="rotate(${a} 12 12)"/>`).join('')}</g></svg>`;
+ART.heart = (fill=C.blushS) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="${fill}" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.3 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.6.7-1.4 2.2-2.6 4.3-2.6 3.7 0 5.8 3.8 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>`;
+ART.drop = (fill=C.skyS) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="${fill}" d="M12 2.5S5 10 5 14.5a7 7 0 0 0 14 0C19 10 12 2.5 12 2.5z"/><path d="M9 15a3 3 0 0 0 3 3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`;
+ART.leaf = (fill=C.mintS) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="${fill}" d="M20 3C9 3 4 8.5 4 15c0 2 .6 3.8 1.4 5.2C7 14 11 10.5 16 9c-4.3 2.4-7.4 6-8.8 11.6 1 .3 2 .4 3 .4C17 21 21 15 20 3z"/></svg>`;
+ART.shield = (fill=C.sunnyS, stroke=C.ink) => `<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5 9 13v17c0 14 10 24 23 29 13-5 23-15 23-29V13L32 5z" fill="${fill}" stroke="${stroke}" stroke-width="4" stroke-linejoin="round"/><path d="m21 32 8 8 15-16" fill="none" stroke="${stroke}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+ART.bag = () => `<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 11h20l-1.6 15.2a3 3 0 0 1-3 2.8H10.6a3 3 0 0 1-3-2.8L6 11z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M11 13V9a5 5 0 0 1 10 0v4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>`;
+ART.menu = () => `<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 9h20M6 16h14M6 23h20" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg>`;
+ART.close = () => `<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 8l16 16M24 8 8 24" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/></svg>`;
+ART.sound = () => `<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 12h5l7-6v20l-7-6H5z" fill="currentColor"/><g class="wave" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" style="transition:opacity .2s"><path d="M21 11.5a6 6 0 0 1 0 9"/><path d="M24.5 8a11 11 0 0 1 0 16"/></g><g class="mute" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" style="transition:opacity .2s"><path d="m21 12 7 8M28 12l-7 8"/></g></svg>`;
+ART.check = (c=C.mintD) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="${c}" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+ART.arrowL = () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+ART.arrowR = () => `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+ART.star = (fill=C.sunnyS) => `<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="${fill}" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9z"/></svg>`;
+ART.pinky = (c=C.ink) => `<svg viewBox="0 0 80 50" aria-hidden="true"><g fill="none" stroke="${c}" stroke-width="5" stroke-linecap="round"><path d="M6 36c8 0 14-4 18-10s9-9 15-7c5 2 5 9 0 11-4 2-9 0-9-4"/><path d="M74 14c-8 0-14 4-18 10s-9 9-15 7c-5-2-5-9 0-11 4-2 9 0 9 4"/></g></svg>`;
+ART.paw = () => ART.heart(C.blushS);
+ART.squiggleArrow = (c=C.ink) => `<svg viewBox="0 0 120 60" aria-hidden="true"><path d="M4 8c22 2 30 20 46 26s34-4 50 14" fill="none" stroke="${c}" stroke-width="3.5" stroke-linecap="round"/><path d="M92 38l10 12-15 2" fill="none" stroke="${c}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+ART.handRub = () => `<svg viewBox="0 0 80 90" aria-hidden="true"><path d="M30 86c-10-4-18-16-20-28l-6-20c-1-4 5-6 7-2l7 14V12c0-5 7-5 7 0v28-34c0-5 7-5 7 0v34-30c0-5 7-5 7 0v30-24c0-5 7-5 7 0v40c0 18-6 26-14 30z" fill="#fff" stroke="${C.ink}" stroke-width="4" stroke-linejoin="round"/></svg>`;
+
+/* ---- product packs ---- */
+ART.tube = (pal, l1, l2, badge='SPF 60') => {
+  const p = PAL[pal];
+  const crimp = Array.from({length:9},(_,i)=>`<line x1="${28+i*10.5}" y1="15" x2="${28+i*10.5}" y2="33" stroke="rgba(255,255,255,.45)" stroke-width="2"/>`).join('');
+  return `<svg viewBox="0 0 140 320" role="img" aria-label="${l1} ${l2} tube">
+  <rect x="20" y="10" width="100" height="28" rx="5" fill="${p.s}" stroke="${C.ink}" stroke-width="4"/>${crimp}
+  <path d="M24 38H116C120 110 124 196 114 250H26C16 196 20 110 24 38Z" fill="#fff" stroke="${C.ink}" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M38 58C35 120 35 190 41 236" stroke="${p.l}" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <text x="74" y="86" text-anchor="middle" ${FU} font-size="12" letter-spacing="1" fill="${p.d}">little luxe</text>
+  <text x="74" y="126" text-anchor="middle" ${FD} font-size="25" fill="${C.ink}">${l1}</text>
+  <text x="74" y="154" text-anchor="middle" ${FD} font-size="25" fill="${C.ink}">${l2}</text>
+  ${badge?`<rect x="40" y="170" width="68" height="26" rx="13" fill="${p.s}"/><text x="74" y="188" text-anchor="middle" ${FU} font-size="13" fill="#fff">${badge}</text>`:''}
+  <g transform="translate(62 206)">${ART.sun(p.s,24).replace('<svg','<svg x="0" y="0"')}</g>
+  <rect x="30" y="248" width="80" height="64" rx="18" fill="${p.s}" stroke="${C.ink}" stroke-width="4"/>
+  <rect x="40" y="258" width="10" height="44" rx="5" fill="rgba(255,255,255,.4)"/>
+</svg>`;
+};
+ART.jar = () => {
+  const p = PAL.mint;
+  return `<svg viewBox="0 0 180 230" role="img" aria-label="Cloud Mist Gel jar">
+  <g fill="${p.s}" stroke="${C.ink}" stroke-width="4"><path d="M30 70c-8-22 14-36 30-26 4-18 32-22 40-6 14-14 40-4 36 16 14 2 18 12 16 16z" stroke-linejoin="round"/></g>
+  <rect x="22" y="58" width="136" height="40" rx="14" fill="${p.s}" stroke="${C.ink}" stroke-width="4"/>
+  <rect x="14" y="94" width="152" height="128" rx="30" fill="#fff" stroke="${C.ink}" stroke-width="4"/>
+  <path d="M30 112c-3 30-3 66 4 92" stroke="${p.l}" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <text x="94" y="126" text-anchor="middle" ${FU} font-size="12" letter-spacing="1" fill="${p.d}">little luxe</text>
+  <text x="94" y="160" text-anchor="middle" ${FD} font-size="26" fill="${C.ink}">Cloud Mist</text>
+  <rect x="64" y="174" width="60" height="24" rx="12" fill="${p.s}"/><text x="94" y="191" text-anchor="middle" ${FU} font-size="13" fill="#fff">GEL</text>
+</svg>`;
+};
+ART.box = () => {
+  const p = PAL.lilac;
+  return `<svg viewBox="0 0 220 230" role="img" aria-label="First Glow Ritual Kit box">
+  <path d="M110 46c-20-34-58-30-52-8 4 14 30 12 52 8zM110 46c20-34 58-30 52-8-4 14-30 12-52 8z" fill="${C.blushS}" stroke="${C.ink}" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="18" y="48" width="184" height="42" rx="10" fill="${p.s}" stroke="${C.ink}" stroke-width="4"/>
+  <rect x="28" y="88" width="164" height="132" rx="14" fill="${p.l}" stroke="${C.ink}" stroke-width="4"/>
+  <rect x="96" y="48" width="28" height="172" fill="${C.blushS}" stroke="${C.ink}" stroke-width="4"/>
+  <g transform="rotate(-8 64 150)"><rect x="34" y="122" width="62" height="54" rx="8" fill="#fff" stroke="${C.ink}" stroke-width="3"/>
+  <text x="65" y="146" text-anchor="middle" ${FD} font-size="13" fill="${C.ink}">First</text><text x="65" y="164" text-anchor="middle" ${FD} font-size="13" fill="${C.ink}">Glow</text></g>
+  <g transform="translate(140 130)">${ART.sun(C.sunnyS,36)}</g>
+  <text x="160" y="196" text-anchor="middle" ${FU} font-size="11" fill="${p.d}">ritual kit</text>
+</svg>`;
+};
+
+/* ---- characters ---- */
+ART.kid = ({shirt=C.skyS, shorts=C.ink, hair='short', id='k', walk=false, cap=false}={}) => {
+  const hairPath = hair==='bun'
+    ? `<circle cx="60" cy="22" r="14" fill="${C.ink}"/><path d="M22 66C18 34 40 24 60 24s42 10 38 42C88 50 74 44 60 44S32 50 22 66Z" fill="${C.ink}"/>`
+    : `<path d="M22 64C20 30 46 18 64 22c24 2 36 22 34 40-10-12-28-20-46-16-12 2-22 10-30 18Z" fill="${C.ink}"/>`;
+  return `<svg viewBox="0 0 120 262" role="img" aria-label="Illustrated child">
+  <g class="${walk?'leg-a':''}"><path d="M50 196 L48 246" stroke="${C.skin}" stroke-width="14" stroke-linecap="round"/><ellipse cx="46" cy="250" rx="13" ry="7" fill="${C.ink}"/></g>
+  <g class="${walk?'leg-b':''}"><path d="M70 196 L72 246" stroke="${C.skin2}" stroke-width="14" stroke-linecap="round"/><ellipse cx="74" cy="250" rx="13" ry="7" fill="${C.ink}"/></g>
+  <rect x="36" y="166" width="48" height="38" rx="12" fill="${shorts}"/>
+  <path d="M36 118 L18 168" stroke="${C.skin2}" stroke-width="12" stroke-linecap="round"/>
+  <path d="M84 118 L102 168" stroke="${C.skin}" stroke-width="12" stroke-linecap="round"/>
+  <rect x="30" y="102" width="60" height="76" rx="24" fill="${shirt}"/>
+  <path d="M48 104q12 10 24 0" stroke="rgba(255,255,255,.6)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="60" cy="64" r="38" fill="${C.skin}"/>
+  <circle cx="22" cy="68" r="7" fill="${C.skin2}"/><circle cx="98" cy="68" r="7" fill="${C.skin2}"/>
+  ${hairPath}
+  ${cap?`<path d="M24 46c4-22 26-30 42-28 18 2 30 14 30 28z" fill="${C.sunnyS}"/><rect x="60" y="40" width="50" height="9" rx="4.5" fill="${C.sunnyS}"/>`:''}
+  <circle cx="46" cy="70" r="4.6" fill="${C.ink}"/><circle cx="74" cy="70" r="4.6" fill="${C.ink}"/>
+  <circle cx="47.6" cy="68.4" r="1.4" fill="#fff"/><circle cx="75.6" cy="68.4" r="1.4" fill="#fff"/>
+  <path d="M48 85q12 11 24 0" stroke="${C.ink}" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="36" cy="82" r="6.5" fill="${C.blushS}" opacity=".45"/><circle cx="84" cy="82" r="6.5" fill="${C.blushS}" opacity=".45"/>
+</svg>`;
+};
+ART.sunFace = () => `<svg viewBox="0 0 200 200" role="img" aria-label="Smiling sun">
+  <g class="rays" fill="${C.sunnyS}">${Array.from({length:12},(_,i)=>`<rect x="92" y="4" width="16" height="34" rx="8" transform="rotate(${i*30} 100 100)"/>`).join('')}</g>
+  <circle cx="100" cy="100" r="58" fill="${C.sunnyS}" stroke="${C.ink}" stroke-width="4"/>
+  <path d="M74 96q8-9 16 0M110 96q8-9 16 0" stroke="${C.ink}" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <path d="M84 116q16 16 32 0" stroke="${C.ink}" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <circle cx="70" cy="114" r="8" fill="${C.blushS}" opacity=".55"/><circle cx="130" cy="114" r="8" fill="${C.blushS}" opacity=".55"/>
+</svg>`;
+ART.cloud = (fill='#fff') => `<svg viewBox="0 0 200 100" aria-hidden="true"><path d="M40 90a30 30 0 0 1-4-60 40 40 0 0 1 72-12 32 32 0 0 1 54 16 26 26 0 0 1-2 56z" fill="${fill}"/></svg>`;
+ART.face = () => `<svg viewBox="0 0 400 400" role="img" aria-label="Close-up of a smiling child's face">
+  <rect width="400" height="400" fill="${C.blush}"/>
+  <circle cx="200" cy="230" r="150" fill="${C.skin}"/>
+  <circle cx="54" cy="236" r="26" fill="${C.skin2}"/><circle cx="346" cy="236" r="26" fill="${C.skin2}"/>
+  <path d="M52 200C44 104 120 54 206 60c86 4 150 62 140 140-34-46-92-74-150-70-58 4-110 30-144 70z" fill="${C.ink}"/>
+  <path d="M140 222q20-22 40 0M220 222q20-22 40 0" stroke="${C.ink}" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M168 288q32 30 64 0" stroke="${C.ink}" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <circle cx="122" cy="276" r="22" fill="${C.blushS}" opacity=".5"/><circle cx="278" cy="276" r="22" fill="${C.blushS}" opacity=".5"/>
+</svg>`;
+ART.texture = (pal='sunny') => { const p=PAL[pal]; return `<svg viewBox="0 0 200 200" role="img" aria-label="Gel texture swirl">
+  <path d="M40 120c0-40 40-70 80-56s40 60 4 70-48-20-24-32 34 6 22 16" fill="none" stroke="#fff" stroke-width="30" stroke-linecap="round"/>
+  <path d="M40 120c0-40 40-70 80-56s40 60 4 70-48-20-24-32 34 6 22 16" fill="none" stroke="${p.s}" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+  <circle cx="70" cy="80" r="6" fill="#fff"/><circle cx="150" cy="150" r="4" fill="#fff"/></svg>`; };
+ART.schoolbag = (pal='sunny') => { const p=PAL[pal]; return `<svg viewBox="0 0 200 220" role="img" aria-label="School bag with sunscreen">
+  <rect x="62" y="20" width="22" height="80" rx="10" fill="#fff" stroke="${C.ink}" stroke-width="4" transform="rotate(-12 73 60)"/>
+  <rect x="68" y="14" width="18" height="16" rx="4" fill="${p.s}" stroke="${C.ink}" stroke-width="3" transform="rotate(-12 73 60)"/>
+  <path d="M70 60c0-30 60-30 60 0" fill="none" stroke="${C.ink}" stroke-width="8" stroke-linecap="round"/>
+  <rect x="30" y="56" width="140" height="150" rx="40" fill="${C.skyS}" stroke="${C.ink}" stroke-width="4"/>
+  <rect x="54" y="120" width="92" height="64" rx="18" fill="${C.sky}" stroke="${C.ink}" stroke-width="4"/>
+  <circle cx="100" cy="100" r="7" fill="${C.sunnyS}" stroke="${C.ink}" stroke-width="3"/></svg>`; };
+
+/* ---- day scene ---- */
+ART.dayScene = () => {
+  const stars = Array.from({length:40},()=>`<circle cx="${(Math.random()*1600).toFixed(0)}" cy="${(Math.random()*480).toFixed(0)}" r="${(Math.random()*2.4+1).toFixed(1)}" fill="#fff"/>`).join('');
+  const bld = [[80,520,120,240],[220,560,90,200],[330,500,140,260],[1180,540,120,220],[1320,500,150,260],[1490,560,110,200]];
+  const buildings = bld.map(([x,y,w,h])=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10"/><rect x="${x+w*.55}" y="${y-30}" width="${w*.3}" height="32" rx="8"/>`).join('');
+  const windows = bld.map(([x,y,w,h])=>{let s='';for(let r=0;r<3;r++)for(let c=0;c<2;c++)s+=`<rect x="${x+16+c*(w/2)}" y="${y+28+r*56}" width="${w/2-32}" height="30" rx="5"/>`;return s;}).join('');
+  return `<svg class="day__svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs><linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1"><stop id="skyTop" offset="0" stop-color="#FFC7A8"/><stop id="skyBot" offset="1" stop-color="#FFE9B8"/></linearGradient>
+  <radialGradient id="shieldG"><stop offset=".7" stop-color="#FFF6C8" stop-opacity="0"/><stop offset="1" stop-color="#FFE68F" stop-opacity=".75"/></radialGradient></defs>
+  <rect x="-400" y="-400" width="2400" height="2000" fill="url(#skyG)"/>
+  <g id="stars" opacity="0">${stars}</g>
+  <g id="sunG"><g transform="translate(-90 -90) scale(.9)">${ART.sunFace().replace(/<svg[^>]*>/,'').replace('</svg>','')}</g></g>
+  <g id="moonG" opacity="0"><circle r="62" fill="#FFF6D6"/><circle cx="26" cy="-16" r="56" fill="#2B1F57" id="moonCut"/>
+    <g transform="translate(-30 -6)"><path d="M-8 0q6-6 12 0" stroke="${C.ink}" stroke-width="4" fill="none" stroke-linecap="round"/></g></g>
+  <g id="clouds" fill="#fff" opacity=".9">
+    <g transform="translate(200 150) scale(1.1)">${ART.cloud().replace(/<svg[^>]*>/,'').replace('</svg>','')}</g>
+    <g transform="translate(1100 110) scale(.8)">${ART.cloud().replace(/<svg[^>]*>/,'').replace('</svg>','')}</g>
+    <g transform="translate(700 230) scale(.6)">${ART.cloud().replace(/<svg[^>]*>/,'').replace('</svg>','')}</g></g>
+  <g id="bld" fill="#E9D9FF">${buildings}</g>
+  <g id="win" fill="#FFE68F" opacity="0">${windows}</g>
+  <path id="hill" d="M-400 700 C 0 600 300 640 600 680 S 1200 620 1600 660 L 2000 660 L2000 1400 L-400 1400Z" fill="#A8E0B8"/>
+  <path id="ground" d="M-400 770 C 200 730 600 760 900 750 S 1500 735 2000 760 L2000 1400 L-400 1400Z" fill="#7FCF97"/>
+  <!-- props per beat -->
+  <g class="prop" data-beat="0" opacity="1" transform="translate(1060 640)">
+    <rect x="0" y="0" width="300" height="120" rx="26" fill="${C.sunnyS}" stroke="${C.ink}" stroke-width="5"/>
+    <rect x="22" y="20" width="56" height="44" rx="10" fill="#CFE2FF" stroke="${C.ink}" stroke-width="4"/><rect x="92" y="20" width="56" height="44" rx="10" fill="#CFE2FF" stroke="${C.ink}" stroke-width="4"/><rect x="162" y="20" width="56" height="44" rx="10" fill="#CFE2FF" stroke="${C.ink}" stroke-width="4"/>
+    <rect x="232" y="20" width="52" height="86" rx="10" fill="#fff" stroke="${C.ink}" stroke-width="4"/>
+    <text x="110" y="96" text-anchor="middle" ${FU} font-size="22" fill="${C.ink}">SCHOOL BUS</text>
+    <circle cx="70" cy="122" r="24" fill="${C.ink}"/><circle cx="240" cy="122" r="24" fill="${C.ink}"/><circle cx="70" cy="122" r="9" fill="#fff"/><circle cx="240" cy="122" r="9" fill="#fff"/></g>
+  <g class="prop" data-beat="1" opacity="0" transform="translate(1080 520)">
+    <path d="M0 250 L60 0 M260 250 L200 0 M50 6 H210" stroke="${C.skyS}" stroke-width="14" stroke-linecap="round" fill="none"/>
+    <g class="swing"><path d="M100 6 V170 M160 6 V170" stroke="${C.ink}" stroke-width="4"/><rect x="88" y="166" width="84" height="16" rx="8" fill="${C.blushS}" stroke="${C.ink}" stroke-width="4"/></g></g>
+  <g class="prop" data-beat="2" opacity="0" transform="translate(1100 600)">
+    <rect x="0" y="0" width="10" height="150" rx="4" fill="#E9C38A" stroke="${C.ink}" stroke-width="3"/><rect x="24" y="0" width="10" height="150" rx="4" fill="#E9C38A" stroke="${C.ink}" stroke-width="3"/><rect x="48" y="0" width="10" height="150" rx="4" fill="#E9C38A" stroke="${C.ink}" stroke-width="3"/>
+    <rect x="-4" y="-8" width="66" height="8" rx="4" fill="${C.ink}"/>
+    <g transform="translate(150 20) rotate(28)"><rect x="0" y="0" width="34" height="140" rx="14" fill="#E9C38A" stroke="${C.ink}" stroke-width="4"/><rect x="11" y="-50" width="12" height="56" rx="6" fill="${C.blushS}" stroke="${C.ink}" stroke-width="3"/></g>
+    <circle cx="260" cy="60" r="16" fill="${C.blushS}" stroke="${C.ink}" stroke-width="3"/></g>
+  <g class="prop" data-beat="3" opacity="0" transform="translate(1070 500)">
+    <path d="M0 120 L150 10 L300 120 Z" fill="${C.blushS}" stroke="${C.ink}" stroke-width="5" stroke-linejoin="round"/>
+    <rect x="24" y="116" width="252" height="164" rx="12" fill="#FFF6E6" stroke="${C.ink}" stroke-width="5"/>
+    <rect x="56" y="150" width="80" height="70" rx="10" fill="#FFE68F" stroke="${C.ink}" stroke-width="4"/><rect x="176" y="170" width="64" height="110" rx="10" fill="${C.lilacS}" stroke="${C.ink}" stroke-width="4"/>
+    <text x="96" y="196" text-anchor="middle" font-family="Gochi Hand, cursive" font-size="22" fill="${C.ink}">zzz</text></g>
+  <g id="kidG" transform="translate(740 520)">
+    <circle id="shield" cx="60" cy="130" r="0" fill="url(#shieldG)" stroke="${C.sunnyS}" stroke-width="6" stroke-dasharray="14 12"/>
+    <g class="walker">${ART.kid({shirt:C.blushS,shorts:C.skyD,walk:true,cap:true}).replace(/<svg[^>]*>/,'').replace('</svg>','')}</g>
+  </g>
+</svg>`;
+};
+
+/* ---- gram tiles (illustrated stand-ins for Instagram posts) ---- */
+ART.gramTiles = [
+  {bg:C.sunny, fg:C.sunnyD, art:()=>ART.sunFace(), cap:'first day of school, SPF on'},
+  {bg:C.mint, fg:C.mintD, art:()=>ART.jar(), cap:'bath, story, cloud mist'},
+  {bg:C.blush, fg:C.blushD, art:()=>ART.kid({shirt:C.sunnyS,shorts:C.ink,hair:'bun'}), cap:'"I did it myself!"'},
+  {bg:C.sky, fg:C.skyD, art:()=>ART.schoolbag('sunny'), cap:'packed: water, tiffin, sunscreen'},
+  {bg:C.lilac, fg:C.lilacD, art:()=>ART.box(), cap:'unboxing the first glow kit'},
+  {bg:C.sunny, fg:C.sunnyD, art:()=>ART.tube('blush','Blush &','Block'), cap:'teen-approved coral tint'},
+  {bg:C.mint, fg:C.mintD, art:()=>ART.kid({shirt:C.lilacS,shorts:C.mintD,cap:true}), cap:'sports day, shield on'},
+];
+</script>
+<script>/* ==========================================================
+   LITTLE LUXE — app (router, sound, scenes, pages)
+   ========================================================== */
+(() => {
+'use strict';
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const clamp = (v, a=0, b=1) => Math.min(b, Math.max(a, v));
+const lerp = (a, b, t) => a + (b - a) * t;
+const range = (p, a, b) => clamp((p - a) / (b - a));
+const easeOutBack = t => { const c1=1.70158, c3=c1+1; return 1 + c3*Math.pow(t-1,3) + c1*Math.pow(t-1,2); };
+const easeOutBounce = t => { const n=7.5625, d=2.75; if(t<1/d) return n*t*t; if(t<2/d) return n*(t-=1.5/d)*t+.75; if(t<2.5/d) return n*(t-=2.25/d)*t+.9375; return n*(t-=2.625/d)*t+.984375; };
+const hex2rgb = h => [1,3,5].map(i=>parseInt(h.slice(i,i+2),16));
+const mix = (a, b, t) => { const A=hex2rgb(a), B=hex2rgb(b); return '#'+A.map((v,i)=>Math.round(lerp(v,B[i],t)).toString(16).padStart(2,'0')).join(''); };
+const ramp = (stops, p) => { // stops: [[t,color],...]
+  for (let i=0;i<stops.length-1;i++){ const [t0,c0]=stops[i],[t1,c1]=stops[i+1]; if(p<=t1) return mix(c0,c1,range(p,t0,t1)); }
+  return stops[stops.length-1][1];
+};
+const store = { get(k,d){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } }, set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} } };
+
+/* ---------------- DATA ---------------- */
+// EDIT: individual prices are placeholders. Kit price (₹599, was ₹945) is from littleluxe.in.
+const PRODUCTS = {
+  'glow-shield': {
+    id:'glow-shield', name:'Glow Shield', full:'Glow Shield Opaque Gel Mineral Sunscreen', badge:'SPF 60 PA++++', pal:'sunny', cat:'sun',
+    price:349, mrp:null, art:()=>ART.tube('sunny','Glow','Shield'),
+    short:'Mineral sunscreen and moisturiser in one non-chalky gel.',
+    sub:'The everyday shield. A mineral SPF 60 PA++++ gel that moisturises too, and rubs in without the white cast.',
+    claims:['SPF 60 PA++++','Mineral filters','Non-chalky gel','2-in-1'],
+    what:'Glow Shield is a 2-in-1: a mineral sunscreen and a moisturiser in one opaque gel. SPF 60 helps protect from UVB, PA++++ from UVA. The gel texture spreads easily on wriggly faces and sinks in clear.',
+    how:['Squeeze a generous strip onto your fingers (or theirs).','Dot it on forehead, cheeks, nose, chin, ears and neck.','Rub in until it disappears. No ghost face.','Reapply every two hours outdoors, and after swimming or a sweaty game.'],
+    key:[['Mineral UV filters','Form a protective layer on the skin to help block UV rays.'],['Moisturising gel base','Keeps skin comfortable, so you can skip a separate morning cream.']], // EDIT: confirm exact filters from pack
+  },
+  'blush-block': {
+    id:'blush-block', name:'Blush & Block', full:'Blush & Block Tinted Sunscreen', badge:'SPF 60 PA++++', pal:'blush', cat:'sun',
+    price:349, mrp:null, art:()=>ART.tube('blush','Blush &','Block'),
+    short:'A soft coral tint with SPF 60 PA++++ underneath. 3-in-1.',
+    sub:'For the ones who want to look like the grown-ups. A coral-tinted 3-in-1 sunscreen with UVA and UVB protection.',
+    claims:['SPF 60 PA++++','Coral tint','UVA + UVB','3-in-1'],
+    what:'Blush & Block is a tinted sunscreen that gives cheeks a soft coral glow while SPF 60 PA++++ protects from UVA and UVB. It is the sunscreen tweens and teens actually ask for.',
+    how:['Shake a little out onto clean fingertips.','Blend it over the face like a tinted cream.','Build a second layer on cheeks for more glow.','Reapply every two hours outdoors.'],
+    key:[['Coral tint','A sheer, natural flush that suits Indian skin tones.'],['SPF 60 PA++++','High protection from both burning UVB and ageing UVA rays.']],
+  },
+  'cloud-mist': {
+    id:'cloud-mist', name:'Cloud Mist Gel', full:'Hydrating Cloud Mist Gel', badge:'Hydrating', pal:'mint', cat:'hydration',
+    price:249, mrp:null, art:()=>ART.jar(),
+    short:'Lightweight, non-greasy moisture with panthenol, cica and hyaluronic acid.',
+    sub:'Puts back what the day took out. A cloud-light gel moisturiser that sinks in before the second page of the bedtime story.',
+    claims:['Panthenol','Cica','Hyaluronic acid','Non-greasy'],
+    what:'Cloud Mist Gel is a lightweight, non-greasy moisturiser for after bath, after sun and before bed. Panthenol, cica and hyaluronic acid help skin stay soft, calm and hydrated.',
+    how:['After bath, pat skin almost dry.','Take a pea-sized amount for the face, more for arms and legs.','Smooth it on in big cloud circles.','Use morning and night, and after a long day in the sun.'],
+    key:[['Panthenol (vitamin B5)','Helps skin hold on to moisture and supports a healthy skin barrier.'],['Cica','A plant extract known for calming and soothing skin.'],['Hyaluronic acid','Draws water into the skin so it feels soft and bouncy.']],
+  },
+  'first-glow-kit': {
+    id:'first-glow-kit', name:'First Glow Ritual Kit', full:'First Glow Ritual Kit', badge:'Discovery kit', pal:'lilac', cat:'kits',
+    price:599, mrp:945, art:()=>ART.box(),
+    short:'All three, plus a founder note and a seed-paper bookmark.',
+    sub:'The easiest place to start. Glow Shield, Blush & Block and Cloud Mist Gel in one box, with a note from our founder and a bookmark you can plant.',
+    claims:['3 products','Founder note','Seed-paper bookmark','Buy 3, get 1 free'],
+    what:'Everything you need to try the whole Little Luxe ritual: Glow Shield for everyday sun, Blush & Block for tinted days and Cloud Mist Gel for hydration. Plus a handwritten-style note from Dr. Jui and a seed-paper bookmark that grows into flowers.',
+    how:['Morning: Glow Shield (or Blush & Block on tinted days).','After play: reapply sunscreen.','Night: Cloud Mist Gel after bath.','Plant the bookmark together and watch it grow.'],
+    key:[['Glow Shield','Mineral SPF 60 PA++++ gel sunscreen and moisturiser.'],['Blush & Block','Coral-tinted SPF 60 PA++++ sunscreen.'],['Cloud Mist Gel','Panthenol, cica and hyaluronic acid moisturiser.']],
+  }
+};
+const ORDER = ['glow-shield','cloud-mist','blush-block','first-glow-kit'];
+const NEVER = ['Parabens','Sulphates','Mineral oil'];
+const CERTS = [['Dermatologically tested','shield'],['Clinically tested','check'],['pH balanced','drop'],['Non-irritant','leaf'],['Not tested on animals','heart'],['Doctor formulated','star'],['Made in India for Indian skin','sun'],['Parent approved','heart']];
+const fmt = n => '₹' + n.toLocaleString('en-IN');
+const P = id => PRODUCTS[id];
+const pal = id => PAL[P(id).pal];
+
+/* ---------------- SOUND (Web Audio, no files) ---------------- */
+const Sound = {
+  ctx:null, master:null, on: store.get('ll-sound', true) && !reduced, last:0,
+  init(){ if(this.ctx) { if(this.ctx.state!=='running') this.ctx.resume(); return; }
+    const AC = window.AudioContext || window.webkitAudioContext; if(!AC) return;
+    this.ctx = new AC(); this.master = this.ctx.createGain(); this.master.gain.value = .32; this.master.connect(this.ctx.destination); },
+  ok(){ return this.on && this.ctx && this.ctx.state === 'running'; },
+  tone(f, dur, type='sine', vol=.25, slide=null, delay=0){
+    if(!this.ok()) return; const t = this.ctx.currentTime + delay;
+    const o = this.ctx.createOscillator(), g = this.ctx.createGain();
+    o.type = type; o.frequency.setValueAtTime(f, t); if(slide) o.frequency.exponentialRampToValueAtTime(slide, t+dur);
+    g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(vol, t+.012); g.gain.exponentialRampToValueAtTime(.0001, t+dur);
+    o.connect(g); g.connect(this.master); o.start(t); o.stop(t+dur+.03);
+  },
+  pop(){ const n=performance.now(); if(n-this.last<70) return; this.last=n; const f=560+Math.random()*160; this.tone(f,.09,'sine',.22,f*.55); },
+  boop(){ this.tone(1046,.1,'triangle',.18); this.tone(1568,.16,'triangle',.18,null,.08); },
+  tick(i){ const s=[523,587,659,698,784,880,988,1046,1175,1318,1397,1568,1760]; const f=s[clamp(i,0,12)]; this.tone(f,.4,'sine',.2); this.tone(f*4,.08,'sine',.04); },
+  sparkle(){ [1318,1568,1760,2093,2637].forEach((f,i)=>this.tone(f,.3,'sine',.11,null,i*.07)); },
+  chime(){ this.tone(2093,.6,'sine',.05); this.tone(3136,.5,'sine',.03,null,.05); },
+  swish(){ if(!this.ok()) return; const c=this.ctx, len=c.sampleRate*.3, buf=c.createBuffer(1,len,c.sampleRate), d=buf.getChannelData(0);
+    for(let i=0;i<len;i++) d[i]=(Math.random()*2-1)*Math.sin(Math.PI*i/len);
+    const s=c.createBufferSource(); s.buffer=buf; const bp=c.createBiquadFilter(); bp.type='bandpass'; bp.Q.value=1.2;
+    bp.frequency.setValueAtTime(500,c.currentTime); bp.frequency.exponentialRampToValueAtTime(2600,c.currentTime+.28);
+    const g=c.createGain(); g.gain.value=.12; s.connect(bp); bp.connect(g); g.connect(this.master); s.start(); },
+  set(v){ this.on=v; store.set('ll-sound', v); $$('.sound-btn').forEach(b=>{ b.setAttribute('aria-pressed', String(v)); b.setAttribute('aria-label', v?'Sound on. Turn sounds off':'Sound off. Turn sounds on'); }); }
+};
+const hideHint = () => { const h=document.getElementById('soundHint'); if(h) h.classList.add('gone'); };
+const wakeAudio = () => { Sound.init(); if(Sound.ctx && !Sound.ctx._watched){ Sound.ctx._watched=true;
+    const chk=()=>{ if(Sound.ctx.state==='running'){ hideHint(); store.set('ll-hint-done',true); } }; Sound.ctx.addEventListener('statechange',chk); chk(); } };
+// touch scrolling doesn't unlock audio, so also listen for real taps (touchend/click)
+['pointerdown','touchend','click','keydown'].forEach(ev=>addEventListener(ev, wakeAudio, {passive:true}));
+const buzz = (p=8) => { if(Sound.on && !reduced && navigator.vibrate){ try{ navigator.vibrate(p); }catch(e){} } };
+
+// hover pops on anything playful
+const POP_SEL = '.btn,.pcard,.sticker,.opt,.thumb,.menu__prod,.gram__tile,.cert,.note,.logo,.bandaid,.dots button,.icard,.menu__links a,.foot ul a';
+document.addEventListener('pointerover', e => {
+  if(e.pointerType && e.pointerType!=='mouse') return;
+  const el = e.target.closest(POP_SEL); if(!el) return;
+  if(e.relatedTarget && el.contains(e.relatedTarget)) return;
+  Sound.pop();
+});
+document.addEventListener('click', e => { if(e.target.closest('.btn,.opt,.tab')) { Sound.boop(); buzz(6); } });
+// on touch screens there is no hover, so give cards and stickers a pop on tap
+document.addEventListener('pointerdown', e => { if(e.pointerType==='mouse') return; const el=e.target.closest(POP_SEL); if(el && !el.closest('.btn,.opt,.tab')) Sound.pop(); }, {passive:true});
+
+/* ---------------- CART ---------------- */
+const Cart = {
+  items: store.get('ll-cart', {}),
+  save(){ store.set('ll-cart', this.items); this.render(); },
+  add(id, n=1){ this.items[id]=(this.items[id]||0)+n; this.save(); },
+  setQty(id, n){ if(n<=0) delete this.items[id]; else this.items[id]=n; this.save(); },
+  count(){ return Object.values(this.items).reduce((a,b)=>a+b,0); },
+  total(){ return Object.entries(this.items).reduce((a,[id,q])=>a+P(id).price*q,0); },
+  render(){
+    const c=this.count(); $$('.bag-count').forEach(b=>{ b.textContent=c; b.hidden=!c; });
+    const box=$('#cartItems'); if(!box) return;
+    if(!c){ box.innerHTML=`<div class="empty">${ART.kid({shirt:C.lilacS,shorts:C.ink,hair:'bun'})}<h3>Your bag is empty</h3><p>Start with the kit. It has all three.</p><a class="btn btn--lilac btn--sm" href="#/product/first-glow-kit" data-close-cart>See the First Glow kit</a></div>`; $('#cartFoot').hidden=true; return; }
+    $('#cartFoot').hidden=false;
+    box.innerHTML = Object.entries(this.items).map(([id,q])=>{ const p=P(id), pl=pal(id); return `<div class="citem">
+      <div class="citem__img" style="--bg:${pl.l}">${p.art()}</div>
+      <div><h4>${p.name}</h4><div class="price" style="font-size:1rem">${fmt(p.price)}</div>
+      <div class="qty" role="group" aria-label="Quantity for ${p.name}"><button data-q="${id}" data-d="-1" aria-label="Remove one">−</button><span>${q}</span><button data-q="${id}" data-d="1" aria-label="Add one">+</button></div></div>
+      <button class="btn btn--ghost btn--sm icon-btn" style="width:40px;height:40px;min-height:40px" data-q="${id}" data-d="-999" aria-label="Remove ${p.name}">${ART.close()}</button></div>`; }).join('');
+    const kits=this.items['first-glow-kit']||0, free=Math.floor(kits/3);
+    $('#cartOffer').innerHTML = free ? `${free} free First Glow kit${free>1?'s':''} added. Thank you for spreading the glow.` : (kits ? `Add ${3-kits%3} more kit${3-kits%3>1?'s':''} and the next one is free.` : 'Festive offer: buy 3 First Glow kits, get 1 free.');
+    $('#cartTotal').textContent = fmt(this.total());
+  }
+};
+document.addEventListener('click', e => {
+  const q = e.target.closest('[data-q]'); if(q){ const id=q.dataset.q; Cart.setQty(id,(Cart.items[id]||0)+Number(q.dataset.d)); Sound.pop(); return; }
+  if(e.target.closest('[data-open-cart]')){ e.preventDefault(); openCart(true); }
+  if(e.target.closest('[data-close-cart]')) openCart(false);
+  const add = e.target.closest('[data-add]'); if(add){ e.preventDefault(); addToBag(add.dataset.add, add, Number(add.dataset.n||1)); }
+});
+function openCart(v){ $('#cart').classList.toggle('open', v); $('#cart').setAttribute('aria-hidden', String(!v)); if(v){ Cart.render(); setTimeout(()=>$('#cart .cart__head button').focus(),50); Sound.swish(); } }
+function addToBag(id, from, n=1){
+  const bag = $('.header .bag-btn');
+  if(!reduced && from && bag){
+    const a=from.getBoundingClientRect(), b=bag.getBoundingClientRect();
+    const f=document.createElement('div'); f.className='fly'; f.innerHTML=P(id).art();
+    f.style.left=(a.left+a.width/2-30)+'px'; f.style.top=(a.top+a.height/2-60)+'px'; document.body.appendChild(f);
+    requestAnimationFrame(()=>{ f.style.transform=`translate(${b.left-a.left-a.width/2+30}px,${b.top-a.top-a.height/2+40}px) scale(.3) rotate(25deg)`; f.style.opacity='.6'; });
+    setTimeout(()=>f.remove(),800);
+  }
+  setTimeout(()=>{ Cart.add(id,n); $$('.bag-count').forEach(c=>{ c.classList.remove('bump'); void c.offsetWidth; c.classList.add('bump'); }); Sound.boop(); buzz([12,40,12]); toast(`${P(id).name} is in your bag.`, true); }, reduced?0:650);
+}
+
+/* ---------------- TOAST / FX ---------------- */
+let toastT;
+function toast(msg, withBag=false){
+  const t=$('#toast'); t.innerHTML = msg + (withBag?' <button class="hand" data-open-cart style="text-decoration:underline;font-size:1.2rem;margin-left:6px;color:#FFE68F">open bag</button>':'');
+  t.classList.add('show'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('show'),3200);
+}
+function confetti(x, y, n=26){
+  if(reduced) return; const cols=[C.blushS,C.sunnyS,C.mintS,C.skyS,C.lilacS];
+  for(let i=0;i<n;i++){ const d=document.createElement('div'); d.className='confetti'; d.innerHTML=ART.heart(cols[i%5]);
+    const a=Math.random()*Math.PI*2, r=80+Math.random()*180;
+    d.style.left=x+'px'; d.style.top=y+'px'; d.style.setProperty('--dx',Math.cos(a)*r+'px'); d.style.setProperty('--dy',(Math.sin(a)*r-60)+'px'); d.style.setProperty('--rot',(Math.random()*720-360)+'deg');
+    document.body.appendChild(d); setTimeout(()=>d.remove(),1500); }
+}
+if(finePointer && !reduced){ let lt=0;
+  addEventListener('pointermove', e=>{ const n=performance.now(); if(n-lt<110) return; lt=n;
+    const b=document.createElement('div'); b.className='bubble'; const s=6+Math.random()*14; b.style.cssText=`width:${s}px;height:${s}px;left:${e.clientX-s/2}px;top:${e.clientY-s/2+14}px;--dx:${(Math.random()*30-15)}px`;
+    document.body.appendChild(b); setTimeout(()=>b.remove(),1150); }, {passive:true});
+}
+
+/* ---------------- SCROLL ENGINE ---------------- */
+let scenes = [], cleanups = [];
+const io = new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } }),{rootMargin:'0px 0px -60px 0px'});
+function addScene(s){ s.cur = s.cur ?? 0; scenes.push(s); }
+const prog = el => { const r=el.getBoundingClientRect(), h=el.offsetHeight-innerHeight; return clamp(-r.top/Math.max(h,1)); };
+let lastY = scrollY, headerHidden=false;
+function frame(){
+  const y = scrollY;
+  // header: hide on scroll down, reveal on scroll up
+  const hd=$('.header'), annH=$('.announce').offsetHeight;
+  hd.style.top = Math.max(0, annH - y) + 'px';
+  if(Math.abs(y-lastY)>4){ const hide = y>lastY && y>220 && !$('#menu').classList.contains('open'); if(hide!==headerHidden){ headerHidden=hide; hd.classList.toggle('is-hidden', hide); } lastY=y; }
+  for(const s of scenes){ if(!s.el.isConnected) continue; const r=s.el.getBoundingClientRect(); if(r.bottom < -200 || r.top > innerHeight+200){ continue; }
+    const target = s.progress ? s.progress() : prog(s.el);
+    if(!s.always && s.drawn===target && s.cur===target) continue;
+    s.cur = reduced ? target : lerp(s.cur, target, s.ease||.14); if(Math.abs(s.cur-target)<.0005) s.cur=target; s.update(s.cur, target); s.drawn=s.cur; }
+  requestAnimationFrame(frame);
+}
+
+/* ---------------- SHARED BLOCKS ---------------- */
+const marquee = (words, cls='c-sunny', tilt=true) => {
+  const icons=[ART.sun(), ART.heart(), ART.drop(), ART.leaf()];
+  const one = words.map((w,i)=>`<span class="marquee__item">${w}${icons[i%4]}</span>`).join('');
+  return `<div class="marquee ${cls} ${tilt?'marquee--tilt':''}" aria-label="${words.join(', ')}"><div class="marquee__track" aria-hidden="true">${one}${one}${one}${one}</div></div>`;
+};
+const card = (id, i=0) => { const p=P(id), pl=pal(id); return `<a class="pcard pop-in" style="--bg:${pl.l};--fg:${pl.d};--i:${i}" href="#/product/${id}">
+  <span class="sticker age" style="--bg:#fff;--fg:${pl.d}">Ages 4–16</span>
+  <div class="pcard__img">${p.art()}</div><h3>${p.name}</h3><p class="pcard__sub">${p.short}</p>
+  <div class="pcard__row"><span class="price">${fmt(p.price)}${p.mrp?`<s>${fmt(p.mrp)}</s>`:''}</span><button class="btn btn--sm add-btn" style="--fg:${pl.d};--sh:${pl.d}" data-add="${id}" aria-label="Add ${p.name} to bag">Add to bag</button></div></a>`; };
+const claimBand = (list, pals=['blush','mint','sky','sunny','lilac']) => list.map((c,i)=>{ const pl=PAL[pals[i%pals.length]]; return `<span class="bandaid" style="--bg:${pl.l};--fg:${pl.d}">${c}</span>`; }).join('');
+const pageHero = (cls, h, lead, deco='') => `<section class="panel page-hero ${cls}"><div class="wrap" style="width:auto;margin:0"><h1 style="max-width:14ch">${h}</h1><p class="lead">${lead}</p></div>${deco?`<div class="deco">${deco}</div>`:''}</section>`;
+const acc = (items, open=0) => `<div class="acc">${items.map(([q,a],i)=>`<details ${i===open?'open':''}><summary>${q}<span class="pm" aria-hidden="true"></span></summary><div class="acc__body">${a}</div></details>`).join('')}</div>`;
+
+const founderLetter = () => `<section class="founder" data-scene="letter">
+  <div><span class="sticker" style="--bg:var(--blush);--fg:var(--blush-d);--r:-4deg">From our founder</span>
+    <h2 style="margin-top:18px">I couldn't find it, so I made it.</h2>
+    <p class="lead">Dr. Jui Gijare is a dentist and a mum. When her son needed skincare, the shelves offered adult formulas in smaller bottles. So she made what she couldn't find, and tested every formula on herself first.</p>
+    <a class="btn btn--ink" href="#/story">Read our story</a></div>
+  <div class="envelope" aria-label="A letter from Dr. Jui Gijare"><div class="env-back"></div>
+    <div class="letter"><p>Dear parent,</p><p>Growing skin is not small adult skin. It deserves care made just for it: gentle, honest, and tested like it matters, because it does.</p><p>Everything we make goes on my own skin first.</p><p class="sig">Dr. Jui Gijare</p></div>
+    <div class="env-front"></div><div class="env-flap"></div><div class="env-seal">${ART.heart(C.blushS).replace('<svg','<svg width="30" height="30"')}</div></div>
+</section>`;
+function initLetter(root){ const el=$('[data-scene="letter"] .envelope', root); if(!el) return;
+  addScene({el, progress:()=>{ const r=el.getBoundingClientRect(); return clamp((innerHeight*0.95 - r.top)/(innerHeight*0.7)); }, update(p){
+    const flap = range(p,0,.45), up = range(p,.4,1);
+    el.querySelector('.env-flap').style.setProperty('--flap', (-180*flap)+'deg');
+    el.querySelector('.env-flap').style.zIndex = flap>.5 ? 1 : 4;
+    el.querySelector('.env-seal').style.opacity = 1-flap*2;
+    el.querySelector('.letter').style.setProperty('--up', (-62*up)+'%');
+  }});
+}
+
+/* ---------------- PAGES ---------------- */
+function pageHome(){
+  const html = `
+  <section class="panel hero" id="hero">
+    <div class="hero__grid">
+      <div>
+        <h1 aria-label="Growing skin deserves care."><span class="line"><span>Growing skin</span></span><span class="line"><span>deserves</span></span><span class="line"><span>care.</span></span></h1>
+        <p class="lead">Gentle, doctor-formulated sun care and hydration for kids aged 4 to 16. Clinical standards for their skin. Peace of mind for you.</p>
+        <div class="hero__ctas"><a class="btn" href="#/shop">Shop the ritual</a><a class="btn btn--ghost" href="#/start-here">Find their ritual</a></div>
+      </div>
+      <div class="hero__stage" data-parallax>
+        <div class="layer hero__cloud" data-depth="10" style="width:38%;left:-4%;top:6%">${ART.cloud()}</div>
+        <div class="layer hero__cloud" data-depth="-14" style="width:26%;left:46%;top:30%">${ART.cloud()}</div>
+        <div class="layer hero__sun" data-depth="22">${ART.sunFace()}</div>
+        <div class="layer hero__prod hero__p1" data-depth="-28">${ART.tube('sunny','Glow','Shield')}</div>
+        <div class="layer hero__prod hero__p2" data-depth="-46">${ART.jar()}</div>
+        <div class="layer hero__prod hero__p3" data-depth="-34">${ART.tube('blush','Blush &','Block')}</div>
+        <span class="sticker pop-in" style="left:2%;bottom:46%;--r:-10deg;--bg:var(--mint);--fg:var(--mint-d)" data-float=".25">Doctor formulated</span>
+        <span class="sticker pop-in" style="right:0;top:56%;--r:8deg;--bg:var(--blush);--fg:var(--blush-d);--i:2" data-float="-.2">No white cast</span>
+        <p class="hero__note hand" aria-hidden="true">the yellow one is mine!${ART.squiggleArrow()}</p>
+        <svg class="spin-badge" style="left:40%;top:-4%" viewBox="0 0 160 160" data-spin aria-label="SPF 60 PA plus plus plus plus">
+          <defs><path id="circ" d="M80 80m-58 0a58 58 0 1 1 116 0a58 58 0 1 1-116 0"/></defs>
+          <circle cx="80" cy="80" r="78" fill="#fff" stroke="${C.ink}" stroke-width="4"/>
+          <text fill="${C.ink}"><textPath href="#circ">SPF 60 · PA++++ · MINERAL · GENTLE ·</textPath></text>
+          <g transform="translate(56 56)">${ART.sun(C.sunnyS,48)}</g></svg>
+      </div>
+    </div>
+  </section>
+
+  ${marquee(['Doctor formulated','pH balanced','SPF 60 PA++++','Made for Indian skin','Paraben free','Parent approved'])}
+
+  <section class="section wrap">
+    <div class="center"><h2>Three little things<br>for very big days.</h2>
+    <p class="lead" style="margin-top:16px">Sun care for school runs and sports days. Moisture for bath time and bedtime. Made by a doctor, for skin that is still growing.</p></div>
+    <div class="row-scroll" style="margin-top:40px">${ORDER.map(card).join('')}</div>
+    <div class="center" style="margin-top:20px"><a class="btn btn--ink" href="#/shop">Shop everything</a></div>
+  </section>
+
+  <section class="day" id="day" aria-label="A sunny day, told in four moments">
+    <div class="day__pin">
+      ${ART.dayScene()}
+      <div class="day__intro"><h2 id="dayIntro">One sunny day.<br>Four little moments.</h2></div>
+      <div class="day__cards">
+        ${[
+          ['7:10 am','The school bus won\'t wait.','Sunscreen goes on with the socks. Glow Shield is a gel, so it\'s on in seconds and doesn\'t leave a white cast on the uniform collar.','I did it myself!','sunny'],
+          ['11:30 am','Recess is the brightest hour.','Mineral SPF 60 PA++++ sits on top of little skin like an invisible umbrella, for UVB and UVA.','shield ON','sky'],
+          ['4:45 pm','Terrace cricket. One more over.','Reapply at the water break. Blush & Block adds a soft coral tint for the older ones, with the same SPF 60 underneath.','I\'m batting next','blush'],
+          ['8:30 pm','Bath, story, sleep.','Cloud Mist Gel puts back what the day took out, with panthenol, cica and hyaluronic acid, in a gel that sinks in before the second page.','goodnight sun','mint']
+        ].map(([t,h,p,s,c],i)=>`<article class="beat ${i===0?'':''}" data-beat="${i}"><span class="sticker beat__time" style="--bg:var(--${c});--fg:var(--${c}-d);--r:-3deg">${t}</span><h3>${h}</h3><p>${p}</p><span class="hand">${s}</span></article>`).join('')}
+      </div>
+      <nav class="day__progress" aria-label="Jump to a moment">${[0,1,2,3].map(i=>`<button data-jump="${i}" aria-label="Moment ${i+1}"></button>`).join('')}</nav>
+    </div>
+  </section>
+
+  <section class="tiles" id="tiles" aria-label="Our products and what they promise">
+    <div class="tiles__pin">
+      <div class="tiles__head wrap"><h2>Gentle enough for little faces.<br>Tested like it's for grown-ups.</h2><p class="lead" style="margin-inline:auto">Dermatologically and clinically tested. Made in India, for Indian sun and Indian skin.</p></div>
+      <div class="tiles__wall"></div><div class="tiles__ledge"></div>
+      <div class="drop drop--1">${ART.tube('sunny','Glow','Shield')}</div>
+      <div class="drop drop--2" style="width:clamp(110px,12vw,180px);margin-left:calc(clamp(110px,12vw,180px) / -2)">${ART.jar()}</div>
+      <div class="drop drop--3">${ART.tube('blush','Blush &','Block')}</div>
+      ${[['pH balanced','sky',6,52,-8],['Paraben free','blush',78,48,6],['Dermatologically tested','sunny',10,80,4],['Non-irritant','mint',64,78,-6],['Sulphate free','lilac',8,64,-3],['Mineral oil free','sky',40,88,5],['Clinically tested','lilac',76,62,4]]
+        .map(([t,c,x,y,r],i)=>`<span class="bandaid ${[0,1,4,6].includes(i)?'m-hide':''}" data-x="${x}" data-y="${y}" style="left:${x}%;top:${y}%;--bg:var(--${c});--fg:var(--${c}-d);--r:${r}deg">${t}</span>`).join('')}
+    </div>
+  </section>
+
+  <section class="panel c-blush rub" id="rub">
+    <div>
+      <span class="sticker" style="--bg:#fff;--fg:var(--blush-d);--r:-5deg">Try it</span>
+      <h2 style="margin:18px 0 16px;color:var(--ink)">Rub it in.<br>Watch it vanish.</h2>
+      <p class="lead" style="color:var(--ink)">Kids run from sunscreen that feels sticky or turns them white. Glow Shield is a gel. Drag across the cheek to rub it in.</p>
+      <div class="rub__meter"><svg class="ring" viewBox="0 0 80 80"><circle class="bg" cx="40" cy="40" r="32"/><circle class="fg" cx="40" cy="40" r="32" stroke-dasharray="201" stroke-dashoffset="201"/></svg>
+        <span class="rub__msg" aria-live="polite">0% rubbed in</span></div>
+      <button class="btn btn--ghost btn--sm" id="rubReset">Put more on</button>
+    </div>
+    <div class="rub__stage" id="rubStage" aria-label="Interactive: drag to rub sunscreen into the cheek">
+      ${ART.face()}<canvas></canvas>
+      <div class="hint-hand">${ART.handRub()}</div>
+      <div class="rub__done"><span class="sticker" style="font-size:1.6rem;--bg:var(--sunny);--fg:var(--sunny-d)">Shield on. No ghost face.</span></div>
+    </div>
+  </section>
+
+  <section class="panel c-sunny grow" id="grow">
+    <div class="door" aria-hidden="true">
+      <div class="door__ruler">${[4,6,8,10,12,14,16].map(a=>`<div class="door__mark" style="bottom:${40+(a-4)/12*45}%;width:${a%4===0?46:30}px"><span>${a}</span></div>`).join('')}</div>
+      <div class="door__line"><span>age 4</span></div>
+      <div class="door__kid">${ART.kid({shirt:C.skyS,shorts:C.ink})}</div>
+    </div>
+    <div style="color:var(--ink)">
+      <span class="sticker" style="--bg:#fff;--fg:var(--sunny-d);--r:4deg">Ages 4 to 16</span>
+      <h2 style="margin:18px 0 10px">Care that grows<br>with them.</h2>
+      <p class="lead" style="color:var(--ink-2)">Slide to their age. Watch the pencil mark climb the door frame, and see the ritual that fits.</p>
+      <label class="sr-only" for="ageSlider">Child's age</label>
+      <input class="slider" id="ageSlider" type="range" min="4" max="16" step="1" value="4">
+      <div class="ages" aria-hidden="true"><span>4</span><span>8</span><span>12</span><span>16</span></div>
+      <div class="stage-card" id="stageCard" aria-live="polite"></div>
+    </div>
+  </section>
+
+  ${founderLetter()}
+
+  <section class="panel c-lilac section" id="promises">
+    <div class="wrap center"><h2 style="color:var(--ink)">Our pinky promises.</h2>
+    <p class="lead" style="color:var(--ink-2);margin-top:14px">What we promise every parent, and every kid who has to sit still for sunscreen.</p></div>
+    <!-- SWAP: add real parent reviews as extra .slide elements (same markup) -->
+    <div class="focus" id="focus">
+      ${[
+        ['No adult formulas in smaller bottles.','Every product is made for growing skin from the first line of the formula.','sunny'],
+        ['Tested on a grown-up first.','Our founder tries every formula on her own skin before it goes near a child\'s.','blush'],
+        ['Nothing hiding in the bottle.','No parabens, no sulphates, no mineral oil. Never tested on animals.','mint'],
+        ['Textures kids don\'t run from.','Gels that rub in fast and clear, so the morning rush stays a rush, not a battle.','sky'],
+        ['Made for Indian sun.','Made in India, for Indian skin, for afternoons that go on and on.','lilac']
+      ].map(([h,p,c],i)=>`<article class="slide" style="--bg:var(--${c});--fg:var(--${c}-d)" aria-roledescription="slide" aria-label="${i+1} of 5"><div><div class="pinky">${ART.pinky(PAL[c].d)}</div><h3>${h}</h3><p>${p}</p></div></article>`).join('')}
+    </div>
+    <div class="focus__nav"><button class="btn btn--ghost btn--sm icon-btn" data-dir="-1" aria-label="Previous promise">${ART.arrowL()}</button><div class="dots" role="tablist">${[0,1,2,3,4].map(i=>`<button data-i="${i}" aria-label="Promise ${i+1}"></button>`).join('')}</div><button class="btn btn--ghost btn--sm icon-btn" data-dir="1" aria-label="Next promise">${ART.arrowR()}</button></div>
+  </section>
+
+  <section class="section" style="padding-bottom:30px">
+    <div class="wrap center"><h2>Little faces, big feelings.</h2><p class="lead" style="margin-top:14px">Tag your mornings, sports days and bedtime stories. We read every one.</p>
+      <a class="btn btn--sky" href="#" style="margin-top:22px" onclick="return false">Follow on Instagram</a></div>
+    <!-- SWAP: replace illustrated tiles with real Instagram posts -->
+    <div class="gram-wrap" style="margin-top:30px"><div class="gram">${[...ART.gramTiles,...ART.gramTiles].map(t=>`<figure class="gram__tile" style="--bg:${t.bg};--fg:${t.fg};margin:0">${t.art()}<figcaption>${t.cap}</figcaption></figure>`).join('')}</div></div>
+  </section>`;
+  return { title:'Little Luxe | Growing skin deserves care', html, init(root){
+    initHero(root); initDay(root); initTiles(root); initRub($('#rubStage',root)); initGrow(root); initLetter(root); initFocus($('#focus',root));
+  }};
+}
+
+function initHero(root){
+  const stage=$('[data-parallax]',root); if(!stage) return;
+  const layers=$$('[data-depth]',stage); let mx=0,my=0;
+  const onMove=e=>{ mx=(e.clientX/innerWidth-.5); my=(e.clientY/innerHeight-.5); };
+  if(finePointer && !reduced){ addEventListener('pointermove',onMove,{passive:true}); cleanups.push(()=>removeEventListener('pointermove',onMove)); }
+  const spin=$('[data-spin]',root), floats=$$('[data-float]',root);
+  if(!finePointer && !reduced && window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission!=='function'){
+    const onTilt=e=>{ if(e.gamma==null) return; mx=clamp(e.gamma/35,-1,1)*.45; my=clamp((e.beta-50)/35,-1,1)*.35; };
+    addEventListener('deviceorientation',onTilt); cleanups.push(()=>removeEventListener('deviceorientation',onTilt)); }
+  addScene({el:$('#hero',root), always:true, progress:()=>scrollY, ease:.2, update(y){
+    layers.forEach(l=>{ const d=+l.dataset.depth; l.style.transform=`translate(${mx*d}px,${my*d + y*d*-.006}px)`; });
+    if(spin) spin.style.transform=`rotate(${y*.25}deg)`;
+    floats.forEach(f=>f.style.translate=`0 ${y*+f.dataset.float}px`);
+  }});
+}
+
+function initDay(root){
+  const sec=$('#day',root); if(!sec) return;
+  const svg=$('.day__svg',sec), beats=$$('.beat',sec), dots=$$('.day__progress button',sec), props=$$('.prop',svg);
+  const skyTop=[[0,'#FFC7A8'],[.3,'#8EC2FF'],[.52,'#7FB2FF'],[.7,'#FF9E7A'],[.82,'#3A2A72'],[1,'#1E1546']];
+  const skyBot=[[0,'#FFE9B8'],[.3,'#E3F0FF'],[.52,'#FFF0C2'],[.7,'#FFC59A'],[.82,'#6A4A9A'],[1,'#3B2A6E']];
+  const hill=[[0,'#A8E0B8'],[.6,'#9AD8A8'],[.75,'#7DA88C'],[1,'#2F3E6E']], gnd=[[0,'#7FCF97'],[.6,'#74C68C'],[.75,'#5E8F72'],[1,'#26325C']];
+  const bld=[[0,'#F1DFFF'],[.6,'#E9D9FF'],[.78,'#8B6FB5'],[1,'#2A2155']];
+  const g=id=>svg.querySelector('#'+id);
+  let active=-1;
+  const setBeat=i=>{ if(i===active) return; active=i; beats.forEach((b,k)=>b.classList.toggle('on',k===i)); dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+    props.forEach(pr=>pr.style.transition='opacity .5s'); props.forEach(pr=>pr.setAttribute('opacity', +pr.dataset.beat===i || (i<0 && pr.dataset.beat==='0') ? 1 : 0));
+    if(i>=0){ Sound.chime(); } };
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{ const top=sec.offsetTop + (sec.offsetHeight-innerHeight)*([.14,.38,.6,.86][i]); scrollTo({top,behavior:reduced?'auto':'smooth'}); }));
+  addScene({el:sec, ease:.1, update(p){
+    g('skyTop').setAttribute('stop-color',ramp(skyTop,p)); g('skyBot').setAttribute('stop-color',ramp(skyBot,p));
+    g('hill').setAttribute('fill',ramp(hill,p)); g('ground').setAttribute('fill',ramp(gnd,p)); g('bld').setAttribute('fill',ramp(bld,p));
+    const st=clamp(p/.8), sx=lerp(120,1480,st), sy=780-Math.sin(st*Math.PI)*640;
+    g('sunG').setAttribute('transform',`translate(${sx} ${sy})`); g('sunG').setAttribute('opacity', 1-range(p,.74,.84));
+    const mt=range(p,.8,1); g('moonG').setAttribute('transform',`translate(${lerp(1300,1180,mt)} ${lerp(820,190,easeOutBack(mt))})`); g('moonG').setAttribute('opacity',range(p,.78,.86));
+    g('moonCut').setAttribute('fill',ramp(skyTop,p));
+    g('stars').setAttribute('opacity',range(p,.8,.95)); g('win').setAttribute('opacity',range(p,.76,.9)); g('clouds').setAttribute('opacity',.9-range(p,.75,.9)*.7);
+    g('clouds').setAttribute('transform',`translate(${p*-260} 0)`);
+    const sh = range(p,.3,.4) * (1-range(p,.72,.8));
+    g('shield').setAttribute('r', 170*easeOutBack(sh)); g('shield').setAttribute('opacity', sh);
+    $('#dayIntro',sec).style.opacity = 1-range(p,.02,.09); $('#dayIntro',sec).style.transform=`scale(${1-range(p,.02,.09)*.1})`;
+    setBeat(p<.08 ? -1 : p<.3 ? 0 : p<.52 ? 1 : p<.74 ? 2 : 3);
+  }});
+}
+
+function initTiles(root){
+  const sec=$('#tiles',root); if(!sec) return;
+  const drops=$$('.drop',sec), bands=$$('.bandaid',sec); let landed=[false,false,false];
+  addScene({el:sec, ease:.16, update(p){
+    drops.forEach((d,i)=>{ const t=range(p,.04+i*.08,.36+i*.08); const y=(1-easeOutBounce(t))*-110; d.style.transform=`translateY(${y}vh) rotate(${(1-t)*(i-1)*30}deg)`;
+      if(t>=.98 && !landed[i]){ landed[i]=true; Sound.tone(220+i*60,.12,'sine',.25,110); } if(t<.5) landed[i]=false; });
+    bands.forEach((b,i)=>{ const t=range(p,.5+i*.05,.66+i*.05); b.style.opacity=t; b.style.transform=`translateY(${(1-easeOutBack(t))*60}px) rotate(${b.style.getPropertyValue('--r')}) scale(${.6+.4*easeOutBack(t)})`; });
+  }});
+}
+
+function initRub(stage){
+  if(!stage) return; const wrap=stage.closest('.rub'); const cv=$('canvas',stage), ctx=cv.getContext('2d');
+  const ring=$('.ring .fg', wrap), msg=$('.rub__msg', wrap); let W,H,done=false,down=false,moves=0;
+  const blobs=[[.64,.6,.12],[.37,.64,.09],[.52,.4,.08],[.7,.48,.05],[.3,.54,.045]];
+  function paint(){ const r=stage.getBoundingClientRect(); const dpr=Math.min(devicePixelRatio||1,2); W=cv.width=r.width*dpr; H=cv.height=r.height*dpr;
+    ctx.globalCompositeOperation='source-over'; ctx.clearRect(0,0,W,H);
+    blobs.forEach(([x,y,s])=>{ const cx=x*W, cy=y*H, R=s*W;
+      ctx.save(); ctx.shadowColor='rgba(43,26,74,.18)'; ctx.shadowBlur=R*.25; ctx.shadowOffsetY=R*.08;
+      const g=ctx.createRadialGradient(cx-R*.25,cy-R*.3,R*.05,cx,cy,R*1.05);
+      g.addColorStop(0,'#FFFFFF'); g.addColorStop(.75,'#FFFDF7'); g.addColorStop(1,'#FFF4E6');
+      ctx.fillStyle=g; ctx.beginPath(); for(let a=0;a<=Math.PI*2+.01;a+=.2){ const rr=R*(1+Math.sin(a*2+x*7)*.06); ctx.lineTo(cx+Math.cos(a)*rr,cy+Math.sin(a)*rr*.78); } ctx.closePath(); ctx.fill(); ctx.restore();
+      ctx.fillStyle='rgba(255,255,255,.95)'; ctx.beginPath(); ctx.ellipse(cx-R*.38,cy-R*.3,R*.22,R*.09,-.5,0,Math.PI*2); ctx.fill();
+      ctx.fillStyle='rgba(207,226,255,.55)'; ctx.beginPath(); ctx.ellipse(cx+R*.3,cy+R*.32,R*.3,R*.08,.3,0,Math.PI*2); ctx.fill(); });
+    done=false; wrap.classList.remove('done','touched'); setPct(0); base=null; base=coverage(); }
+  let base=null;
+  function coverage(){ const step=8, d=ctx.getImageData(0,0,W,H).data; let s=0; for(let i=3;i<d.length;i+=4*step) s+=d[i]; return s; }
+  function setPct(v){ ring.style.strokeDashoffset = 201*(1-v); msg.textContent = done ? 'All rubbed in. Shield on.' : Math.round(v*100)+'% rubbed in'; }
+  function rub(e){ const r=stage.getBoundingClientRect(); const dpr=W/r.width; const x=(e.clientX-r.left)*dpr, y=(e.clientY-r.top)*dpr;
+    ctx.globalCompositeOperation='destination-out'; const R=W*.07; const g=ctx.createRadialGradient(x,y,0,x,y,R); g.addColorStop(0,'rgba(0,0,0,.55)'); g.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g; ctx.beginPath(); ctx.arc(x,y,R,0,Math.PI*2); ctx.fill();
+    if(++moves%4===0){ const left=coverage()/base; const v=clamp(1-left); setPct(v); if(Math.random()<.5) spark(e.clientX-r.left,e.clientY-r.top);
+      if(v>.85 && !done){ done=true; wrap.classList.add('done'); ctx.clearRect(0,0,W,H); setPct(1); Sound.sparkle(); buzz([10,50,10,50,20]); const rr=stage.getBoundingClientRect(); confetti(rr.left+rr.width/2, rr.top+rr.height/2, 18); } } }
+  function spark(x,y){ if(reduced) return; const s=document.createElement('div'); s.className='sparkle'; s.innerHTML=ART.star(C.sunnyS); s.style.left=(x-9+Math.random()*30-15)+'px'; s.style.top=(y-9+Math.random()*30-15)+'px'; stage.appendChild(s); setTimeout(()=>s.remove(),700); }
+  stage.addEventListener('pointerdown',e=>{ down=true; wrap.classList.add('touched'); stage.setPointerCapture(e.pointerId); rub(e); });
+  stage.addEventListener('pointermove',e=>{ if(down && !done) rub(e); });
+  const up=()=>down=false; stage.addEventListener('pointerup',up); stage.addEventListener('pointercancel',up);
+  $('#rubReset',wrap).addEventListener('click',paint);
+  // keyboard fallback
+  stage.tabIndex=0; stage.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); done=true; wrap.classList.add('done','touched'); ctx.clearRect(0,0,W,H); setPct(1); Sound.sparkle(); } });
+  const ro=new ResizeObserver(()=>paint()); ro.observe(stage); cleanups.push(()=>ro.disconnect());
+}
+
+const STAGES = [
+  {max:7, name:'Little explorer', note:'You apply, they giggle. Make it a game: dot, dot, dot, then rub.', ritual:['glow-shield','cloud-mist'], kid:'still needs help with the cap'},
+  {max:12, name:'Big kid, bigger opinions', note:'They want to do it themselves. Let them, then check the ears and the back of the neck.', ritual:['glow-shield','cloud-mist'], kid:'"I can do it MYSELF"'},
+  {max:16, name:'Teen, mostly', note:'A tinted SPF they actually want to wear on school days, and a light gel that never feels greasy.', ritual:['blush-block','cloud-mist'], kid:'"can I borrow yours?" "no, this one is yours"'}
+];
+function initGrow(root){
+  const s=$('#ageSlider',root); if(!s) return; const kid=$('.door__kid',root), line=$('.door__line',root), card=$('#stageCard',root); let lastStage=-1;
+  const upd=(fromUser)=>{ const a=+s.value, t=(a-4)/12; s.style.setProperty('--p',(t*100)+'%');
+    kid.style.height=(40+t*45)+"%";
+    const bottom = 40 + t*45; line.style.bottom = `calc(${bottom}% + 0px)`; line.querySelector('span').textContent='age '+a;
+    const si=STAGES.findIndex(x=>a<=x.max), st=STAGES[si];
+    if(si!==lastStage){ lastStage=si; card.innerHTML=`<div class="stage-swap"><span class="hand" style="font-size:1.3rem;color:var(--blush-d)">${st.kid}</span><h3>${st.name}</h3><p style="margin:0;color:var(--ink-2)">${st.note}</p>
+      <div class="ritual">${st.ritual.map(id=>`<a class="bandaid" href="#/product/${id}" style="--bg:${pal(id).l};--fg:${pal(id).d};text-decoration:none">${P(id).name}</a>`).join('')}</div>
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn--sm" data-add-ritual="${st.ritual.join(',')}">Add this ritual</button><a class="btn btn--ghost btn--sm" href="#/start-here">Take the 3-question quiz</a></div></div>`; }
+    if(fromUser){ Sound.tick(a-4); buzz(5); }
+  };
+  s.addEventListener('input',()=>upd(true)); upd(false);
+  card.addEventListener('click',e=>{ const b=e.target.closest('[data-add-ritual]'); if(!b) return; b.dataset.addRitual.split(',').forEach((id,i)=>setTimeout(()=>addToBag(id,b),i*250)); });
+}
+
+function initFocus(el){
+  if(!el) return; const slides=$$('.slide',el), n=slides.length, wrap=el.parentElement, dots=$$('.dots button',wrap); let i=0, timer;
+  const go=k=>{ i=(k+n)%n; slides.forEach((s,j)=>{ s.classList.remove('active','prev','next'); if(j===i) s.classList.add('active'); else if(j===(i-1+n)%n) s.classList.add('prev'); else if(j===(i+1)%n) s.classList.add('next'); s.setAttribute('aria-hidden', String(j!==i)); });
+    dots.forEach((d,j)=>{ d.classList.toggle('on',j===i); d.setAttribute('aria-selected', String(j===i)); }); };
+  $$('[data-dir]',wrap).forEach(b=>b.addEventListener('click',()=>{ go(i+ +b.dataset.dir); restart(); }));
+  dots.forEach((d,j)=>d.addEventListener('click',()=>{ go(j); restart(); }));
+  slides.forEach((s,j)=>s.addEventListener('click',()=>{ if(j!==i){ go(j); Sound.pop(); restart(); } }));
+  let sx=0; el.addEventListener('pointerdown',e=>sx=e.clientX); el.addEventListener('pointerup',e=>{ const dx=e.clientX-sx; if(Math.abs(dx)>50){ go(i+(dx<0?1:-1)); Sound.pop(); buzz(8); restart(); } });
+  const restart=()=>{ clearInterval(timer); if(!reduced) timer=setInterval(()=>go(i+1),5200); };
+  go(0); restart(); cleanups.push(()=>clearInterval(timer));
+}
+
+function pageShop(cat='all'){
+  const tabs=[['all','Everything'],['sun','Sun care'],['hydration','Hydration'],['kits','Kits']];
+  const html=`${pageHero('c-sky','Everything their skin needs. Nothing it doesn\'t.','Three doctor-formulated essentials for ages 4 to 16, and a kit that has all of them.', ART.sunFace())}
+  <section class="wrap" style="padding-top:10px">
+    <div class="tabs" role="group" aria-label="Filter products">${tabs.map(([k,l])=>`<button class="btn btn--sm tab" data-cat="${k}" aria-pressed="${k===cat}">${l}</button>`).join('')}</div>
+    <div class="cards" id="shopGrid"></div>
+  </section>
+  <section class="panel c-lilac section" style="margin-top:70px">
+    <div class="wrap" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px;align-items:center">
+      <div style="width:min(380px,100%);justify-self:center">${ART.box()}</div>
+      <div style="color:var(--ink)"><span class="sticker" style="--bg:var(--sunny);--fg:var(--sunny-d)">Festive offer</span>
+        <h2 style="margin:16px 0 12px">Not sure where to start? Start with all three.</h2>
+        <p class="lead" style="color:var(--ink-2)">The First Glow Ritual Kit has Glow Shield, Blush & Block and Cloud Mist Gel, a note from our founder and a seed-paper bookmark you can plant together.</p>
+        <p class="price" style="font-size:2rem;margin:10px 0 20px">${fmt(599)} <s>${fmt(945)}</s></p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap"><button class="btn" data-add="first-glow-kit">Add the kit to bag</button><button class="btn btn--ghost" data-add="first-glow-kit" data-n="3">Add 3, get 1 free</button></div></div>
+    </div></section>
+  ${marquee(['Gentle','Doctor formulated','Tested on our founder first','Made in India','Ages 4 to 16'],'c-mint',false)}`;
+  return { title:'Shop | Little Luxe', html, init(root){
+    const grid=$('#shopGrid',root);
+    const draw=c=>{ grid.innerHTML=ORDER.filter(id=>c==='all'||P(id).cat===c).map(card).join(''); $$('.pop-in',grid).forEach(x=>io.observe(x)); };
+    $$('.tab',root).forEach(t=>t.addEventListener('click',()=>{ $$('.tab',root).forEach(x=>x.setAttribute('aria-pressed',String(x===t))); draw(t.dataset.cat); history.replaceState(null,'','#/shop'+(t.dataset.cat==='all'?'':'/'+t.dataset.cat)); }));
+    draw(cat);
+  }};
+}
+
+function pageProduct(id){
+  const p=P(id); if(!p) return pageNotFound();
+  const pl=pal(id);
+  const views=[['Pack',p.art()],['Texture',ART.texture(p.pal)],['In the school bag',ART.schoolbag(p.pal)],['Little user',ART.kid({shirt:pl.s,shorts:C.ink,cap:p.cat==='sun'})]];
+  const pairs=ORDER.filter(x=>x!==id).slice(0,3);
+  const html=`<section class="pdp">
+    <div class="gallery">
+      <div class="gallery__thumbs" role="group" aria-label="Product views">${views.map(([l,a],i)=>`<button class="thumb" style="--bg:${pl.l}" data-view="${i}" aria-pressed="${i===0}" aria-label="${l}">${a}</button>`).join('')}</div>
+      <div class="gallery__main" id="mainView" style="--bg:${pl.l};--fg:${pl.d}">${views[0][1]}
+        <span class="sticker" style="position:absolute;top:20px;left:20px;--bg:#fff;--fg:${pl.d};--r:-6deg">${p.badge}</span>
+        <span class="sticker" style="position:absolute;bottom:22px;right:20px;--bg:${pl.s};--fg:#fff;--r:5deg;border-color:#fff">Ages 4–16</span></div>
+    </div>
+    <div>
+      <a href="#/shop" class="ui" style="text-decoration:none;color:var(--ink-2)">← All products</a>
+      <h1>${p.name}</h1><p class="pdp__sub">${p.sub}</p>
+      <div class="pdp__buy"><span class="price" style="font-size:2rem">${fmt(p.price)}${p.mrp?`<s>${fmt(p.mrp)}</s>`:''}</span>
+        <div class="qty qty--lg" role="group" aria-label="Quantity"><button id="qMinus" aria-label="Fewer">−</button><span id="qVal">1</span><button id="qPlus" aria-label="More">+</button></div>
+        <button class="btn" id="pdpAdd" style="--bg:${pl.s};--sh:var(--ink)">Add to bag</button></div>
+      <div class="pdp__claims">${claimBand(p.claims,[p.pal,'mint','sky','lilac'])}</div>
+      ${acc([
+        ['What it does', `<p>${p.what}</p>`],
+        ['How to use it', `<ol>${p.how.map(h=>`<li>${h}</li>`).join('')}</ol>`],
+        ['What\'s inside', `<ul>${p.key.map(([k,v])=>`<li><b>${k}:</b> ${v}</li>`).join('')}</ul><p style="margin-top:10px"><a href="#/inside">See every ingredient explained</a></p>`],
+        ['What\'s never inside', `<p>No parabens. No sulphates. No mineral oil. Not tested on animals. Dermatologically tested, clinically tested, pH balanced and non-irritant.</p>`]
+      ])}
+    </div>
+  </section>
+  ${p.cat==='sun'?`<section class="panel c-blush rub" id="rub" style="margin-top:40px">
+    <div><h2 style="margin:0 0 16px;color:var(--ink)">Feel the texture.</h2><p class="lead" style="color:var(--ink)">Drag across the cheek to rub it in. A gel that disappears, not a paste that stays.</p>
+      <div class="rub__meter"><svg class="ring" viewBox="0 0 80 80"><circle class="bg" cx="40" cy="40" r="32"/><circle class="fg" cx="40" cy="40" r="32" stroke-dasharray="201" stroke-dashoffset="201"/></svg><span class="rub__msg" aria-live="polite">0% rubbed in</span></div>
+      <button class="btn btn--ghost btn--sm" id="rubReset">Put more on</button></div>
+    <div class="rub__stage" id="rubStage" aria-label="Interactive: drag to rub sunscreen into the cheek">${ART.face()}<canvas></canvas><div class="hint-hand">${ART.handRub()}</div><div class="rub__done"><span class="sticker" style="font-size:1.6rem">Shield on. No ghost face.</span></div></div>
+  </section>`:''}
+  <section class="section wrap"><h2 class="center" style="margin-bottom:36px">Pairs well with</h2><div class="cards">${pairs.map(card).join('')}</div></section>
+  <div class="sticky-buy" id="stickyBuy"><div><b class="ui" style="font-size:1.1rem">${p.name}</b><div class="price" style="font-size:1rem">${fmt(p.price)}</div></div><button class="btn btn--sm" data-add="${id}" style="--bg:${pl.s}">Add to bag</button></div>`;
+  return { title:`${p.name} | Little Luxe`, html, init(root){
+    let q=1; const qv=$('#qVal',root);
+    $('#qMinus',root).onclick=()=>{ q=Math.max(1,q-1); qv.textContent=q; Sound.pop(); };
+    $('#qPlus',root).onclick=()=>{ q=Math.min(9,q+1); qv.textContent=q; Sound.pop(); };
+    $('#pdpAdd',root).onclick=e=>addToBag(id,e.currentTarget,q);
+    $$('.thumb',root).forEach(t=>t.addEventListener('click',()=>{ $$('.thumb',root).forEach(x=>x.setAttribute('aria-pressed',String(x===t)));
+      const mv=$('#mainView',root); const art=mv.querySelector(':scope > svg'); art.outerHTML=views[+t.dataset.view][1]; const n=mv.querySelector(':scope > svg'); n.animate([{transform:'scale(.7) rotate(-8deg)',opacity:0},{transform:'none',opacity:1}],{duration:450,easing:'cubic-bezier(.34,1.56,.64,1)'}); }));
+    initRub($('#rubStage',root));
+    const sb=$('#stickyBuy',root), ob=new IntersectionObserver(([en])=>{ const on=!en.isIntersecting && en.boundingClientRect.top<0; sb.classList.toggle('show',on); document.body.classList.toggle('has-sticky',on); }); cleanups.push(()=>document.body.classList.remove('has-sticky')); ob.observe($('#pdpAdd',root)); cleanups.push(()=>ob.disconnect());
+  }};
+}
+
+function pageStory(){
+  // EDIT: chapter copy is based on the founder story on littleluxe.in; add dates/photos when available.
+  const ch=[
+    ['The search','Her son needed sunscreen and a moisturiser. The shelves offered adult formulas, just in smaller bottles.','sunny'],
+    ['A doctor\'s checklist','As a doctor, Dr. Jui Gijare wrote down what growing skin actually needs: gentle, pH balanced, non-irritating, and nothing it doesn\'t need.','sky'],
+    ['Tested on herself first','Every formula went on her own skin before it went anywhere near a child\'s. It still does.','blush'],
+    ['Three little things','Glow Shield, Blush & Block and Cloud Mist Gel. Dermatologically and clinically tested, made in India for Indian skin.','mint'],
+    ['Growing with them','For kids, tweens and teens aged 4 to 16, and for the parents who want peace of mind.','lilac']
+  ];
+  const html=`${pageHero('c-blush','It started with one little boy and a mum who reads every label.','Little Luxe is skincare made by a doctor, for skin that is still growing. Here is how it began.', ART.kid({shirt:C.sunnyS,shorts:C.ink}))}
+  <section class="section wrap"><div class="tl" id="tl"><div class="tl__line"><div class="tl__fill"></div></div>
+    ${ch.map(([h,p,c],i)=>`<div class="tl__item"><span class="tl__pin">${i+1}</span><div class="tl__card pop-in" style="--bg:var(--${c});--fg:var(--${c}-d)"><span class="hand" style="font-size:1.3rem">chapter ${i+1}</span><h3>${h}</h3><p>${p}</p></div></div>`).join('')}
+  </div></section>
+  ${founderLetter()}
+  ${marquee(['Clinical standards for their skin','Peace of mind for you'],'c-blush',true)}
+  <section class="section wrap center"><h2>Ready for their first glow?</h2><p class="lead" style="margin-top:14px">The kit has all three products and a note from Dr. Jui.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:24px"><a class="btn" href="#/product/first-glow-kit">See the kit</a><a class="btn btn--ghost" href="#/start-here">Find their ritual</a></div></section>`;
+  return { title:'Our story | Little Luxe', html, init(root){
+    const tl=$('#tl',root); addScene({el:tl, progress:()=>{ const r=tl.getBoundingClientRect(); return clamp((innerHeight*.6-r.top)/r.height); }, update(p){ tl.querySelector('.tl__fill').style.height=(p*100)+'%'; }});
+    initLetter(root);
+  }};
+}
+
+function pageQuiz(){
+  const Q=[
+    ['How old is your little one?',[['4 to 7','Little explorer','still needs help with the cap','sunny'],['8 to 12','Big kid','wants to do it themselves','sky'],['13 to 16','Teen','has opinions about everything','lilac']]],
+    ['What does their day look like?',[['Mostly indoors','School, books, home','the walk to the bus counts','mint'],['School and playground','Recess in the sun','monkey bars, every day','sunny'],['Sports all day','Nets, matches, the pool','one more over, always','blush']]],
+    ['What do they say about skincare?',[['"Do I have to?"','They want it fast','10 seconds, max','sky'],['"It feels sticky!"','They want it light','gel, not cream','mint'],['"Can I have what you use?"','They want to feel grown-up','tinted, please','blush']]]
+  ];
+  const html=`${pageHero('c-mint','Find their ritual in three taps.','Tell us a little about your child. We will suggest a morning, after-play and bedtime routine that fits.', ART.schoolbag('mint'))}
+  <section class="quiz" id="quiz" style="margin-top:40px"></section>`;
+  return { title:'Start here | Little Luxe', html, init(root){
+    const box=$('#quiz',root), ans=[];
+    const draw=()=>{ const k=ans.length;
+      if(k<Q.length){ const [q,opts]=Q[k];
+        box.innerHTML=`<div class="quiz__bar" aria-hidden="true"><span style="--w:${k/Q.length*100}%"></span></div><div class="quiz__q stage-swap"><p class="ui" style="color:var(--ink-2)">Question ${k+1} of ${Q.length}</p><h2>${q}</h2>
+          <div class="opts">${opts.map(([a,b,c,col],i)=>`<button class="opt" style="--bg:var(--${col});--fg:var(--${col}-d)" data-a="${i}"><b>${a}</b><span>${b}</span><span class="hand">${c}</span></button>`).join('')}</div>
+          ${k?`<button class="ui" style="margin-top:22px;text-decoration:underline" id="qBack">Back</button>`:''}</div>`;
+        $$('.opt',box).forEach(o=>o.onclick=()=>{ ans.push(+o.dataset.a); Sound.tick(ans.length*3); buzz(10); draw(); });
+        const b=$('#qBack',box); if(b) b.onclick=()=>{ ans.pop(); draw(); };
+      } else result();
+      box.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});
+    };
+    const result=()=>{
+      const [age,day,says]=ans; const day1 = (age===2||says===2) ? 'blush-block' : 'glow-shield';
+      const ritual=[['Morning',day1, day1==='blush-block'?'A soft coral tint with SPF 60 PA++++, on before school.':'One quick layer before the bus. Ears and neck too.'],
+        ['After play', day1, day===2?'Reapply at every water break and after the pool.':day===1?'Reapply after recess or the evening game.':'A top-up before any time outdoors.'],
+        ['Bedtime','cloud-mist','Cloud Mist Gel after bath, smoothed on in big cloud circles.']];
+      const ids=[...new Set(ritual.map(r=>r[1]))];
+      box.innerHTML=`<div class="quiz__bar" aria-hidden="true"><span style="--w:100%"></span></div><div class="stage-swap"><span class="sticker" style="--bg:var(--sunny);--fg:var(--sunny-d)">Their ritual</span>
+        <h2 style="font-size:clamp(2rem,4.6vw,3.6rem);margin:16px 0 24px">Here's a day of care that fits.</h2>
+        <div style="display:grid;gap:18px">${ritual.map(([t,id,txt],i)=>{ const pl=pal(id); return `<div class="tl__card" style="--bg:${pl.l};--fg:${pl.d};display:grid;grid-template-columns:90px 1fr;gap:18px;align-items:center"><div style="height:110px;display:grid;place-items:center">${P(id).art().replace('<svg','<svg style="height:110px;width:auto"')}</div><div><span class="hand" style="font-size:1.3rem">${i+1}. ${t}</span><h3 style="margin:4px 0 6px">${P(id).name}</h3><p>${txt}</p></div></div>`; }).join('')}</div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:28px"><button class="btn" id="addRitual">Add the ritual to bag</button><a class="btn btn--lilac" href="#/product/first-glow-kit">Or get all three in the kit (${fmt(599)})</a><button class="btn btn--ghost" id="again">Start again</button></div></div>`;
+      Sound.sparkle(); const r=box.getBoundingClientRect(); confetti(innerWidth/2, Math.max(120,r.top+80), 30);
+      $('#addRitual',box).onclick=e=>ids.forEach((id,i)=>setTimeout(()=>addToBag(id,e.target),i*260));
+      $('#again',box).onclick=()=>{ ans.length=0; draw(); };
+    };
+    draw(); window.scrollTo(0,0);
+  }};
+}
+
+function pageInside(){
+  const I=[
+    ['Panthenol (vitamin B5)','drop','sky','Helps skin hold on to moisture and supports a healthy skin barrier.','A drink of water your skin can save for later.'],
+    ['Cica','leaf','mint','A plant extract (Centella asiatica) known for calming and soothing skin.','A leafy helper that tells grumpy skin, "shh, it\'s okay."'],
+    ['Hyaluronic acid','drop','lilac','Draws water into the skin so it feels soft, plump and comfortable.','A tiny sponge that makes cheeks squishy-soft.'],
+    ['Mineral UV filters','sun','sunny','Form a protective layer on the skin to help block UVA and UVB rays.','An invisible umbrella for your face, even when it\'s not raining.'],
+    ['Coral tint','heart','blush','A sheer tint in Blush & Block that evens out the look of skin, with SPF underneath.','Rosy cheeks, like you just won the race.'],
+  ]; // EDIT: confirm full INCI list with the brand
+  const ic={drop:ART.drop,leaf:ART.leaf,sun:(c)=>ART.sun(c,64),heart:ART.heart,shield:(c)=>ART.shield(c),check:(c)=>ART.check(c),star:ART.star};
+  const html=`${pageHero('c-mint','Read the label with us.','Every ingredient explained twice: once for you, once for them. Flip the switch.', ART.jar())}
+  <section class="section wrap" style="padding-top:40px">
+    <div class="center"><p class="ui" style="margin:0 0 4px;color:var(--ink-2)">Explain it</p><div class="switch" role="group" aria-label="Explain it"><button aria-pressed="true" data-mode="parent">For parents</button><button aria-pressed="false" data-mode="kid">For kids</button></div></div>
+    <div class="ingr" style="margin-top:40px" id="ingr">${I.map(([n,icn,c,par,kid],i)=>`<article class="icard pop-in" style="--bg:var(--${c});--fg:var(--${c}-d);--i:${i}">${ic[icn](PAL[c].s)}<h3>${n}</h3><p class="txt" data-parent="${par.replace(/"/g,'&quot;')}" data-kid="${kid.replace(/"/g,'&quot;')}">${par}</p></article>`).join('')}</div>
+  </section>
+  <section class="panel c-ink section center"><h2 style="color:#fff">What's never inside.</h2><p class="lead" style="margin:14px auto 0;opacity:.85">Scroll down and watch us cross them out.</p>
+    <div class="never" id="never">${NEVER.map(n=>`<span class="never__item" style="color:#fff">${n}<svg viewBox="0 0 300 60" preserveAspectRatio="none"><path d="M5 40 C 60 10, 120 50, 180 22 S 270 30, 295 18"/></svg></span>`).join('')}</div>
+    <p class="hand" style="font-size:1.6rem;margin-top:30px;color:var(--sunny)">and never tested on animals</p></section>
+  <section class="section wrap"><h2 class="center">Tested, checked, and double-checked.</h2>
+    <div class="certs">${CERTS.map(([t,icn],i)=>{ const c=['sunny','mint','sky','blush','lilac'][i%5]; return `<div class="cert pop-in" style="--i:${i}">${ic[icn](PAL[c].s)}<span>${t}</span></div>`; }).join('')}</div></section>`;
+  return { title:'What\'s inside | Little Luxe', html, init(root){
+    $$('.switch button',root).forEach(b=>b.addEventListener('click',()=>{ $$('.switch button',root).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));
+      $$('.icard .txt',root).forEach((t,i)=>{ t.animate([{opacity:1,transform:'none'},{opacity:0,transform:'translateY(8px)'}],{duration:160}).onfinish=()=>{ t.textContent=t.dataset[b.dataset.mode]; t.className='txt '+(b.dataset.mode==='kid'?'kid':''); t.animate([{opacity:0,transform:'translateY(-8px)'},{opacity:1,transform:'none'}],{duration:260,easing:'cubic-bezier(.34,1.56,.64,1)'}); }; }); }));
+    io.observe($('#never',root));
+  }};
+}
+
+function pageFaq(){
+  const G=[
+    ['Sun care basics','sunny',[
+      ['Do kids really need sunscreen every day?','On any day they are outside, yes, including cloudy and monsoon days, because UV gets through clouds. School runs, recess and terrace play all add up.'],
+      ['How much should I use?','Enough to cover every exposed bit in a visible layer: face, ears, neck, arms and legs. Most people use too little, so be generous.'],
+      ['How often do we reapply?','Every two hours outdoors, and straight after swimming, towelling off or a very sweaty game.'],
+      ['Glow Shield or Blush & Block?','Both are SPF 60 PA++++. Glow Shield is a non-chalky gel that moisturises too. Blush & Block adds a soft coral tint, which tweens and teens often love.']]],
+    ['Ages and routines','sky',[
+      ['What ages is Little Luxe for?','Our range is made for kids, tweens and teens aged 4 to 16.'],
+      ['Can my child apply it themselves?','Yes, and we encourage it. For younger ones, do a quick check of the ears, hairline and back of the neck.'],
+      ['My child is under 4. Can we use it?','Our range is formulated for ages 4 to 16. For younger children, please ask your paediatrician.']]],
+    ['Ingredients and safety','mint',[
+      ['How is it tested?','Every product is dermatologically tested, clinically tested, pH balanced and non-irritant. Our founder also tests each formula on herself first.'],
+      ['What is never inside?','No parabens, no sulphates and no mineral oil. We never test on animals.'],
+      ['My child has sensitive skin. Any tips?','Try a small amount on the inner arm first and wait a day. If you see redness or irritation, stop using it and check with your doctor.']]],
+    ['Orders and offers','lilac',[
+      ['What is in the First Glow Ritual Kit?','Glow Shield, Blush & Block and Cloud Mist Gel, plus a founder note and a seed-paper bookmark.'],
+      ['How does "buy 3 kits, get 1 free" work?','Add three First Glow Ritual Kits to your bag and the fourth one is on us.'],
+      ['How long does delivery take?','Delivery options and charges are shown at checkout.']]] // EDIT: add shipping policy
+  ];
+  const html=`${pageHero('c-sunny','Questions parents ask us.','Short answers to the things you\'re wondering about at 11 pm.', ART.sunFace())}
+  <div class="wrap"><div class="tabs" role="group" aria-label="Jump to a topic">${G.map(([g,c],i)=>`<button class="btn btn--sm btn--${c==='sunny'?'sun':c}" data-jumpto="faq-${i}">${g}</button>`).join('')}</div></div>
+  <section class="faq">${G.map(([g,c,qs],i)=>`<div id="faq-${i}" style="scroll-margin-top:110px"><h2>${g}</h2>${acc(qs.map(([q,a])=>[q,`<p>${a}</p>`]),-1).replace('class="acc"',`class="acc" style="box-shadow:6px 6px 0 var(--${c}-d)"`)}</div>`).join('')}
+    <div class="panel c-blush" style="margin:0;padding:clamp(24px,4vw,44px);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap"><div style="color:var(--ink)"><h3>Still wondering?</h3><p style="margin:6px 0 0">Our three-question quiz suggests a routine in under a minute.</p></div><a class="btn btn--ink" href="#/start-here">Take the quiz</a></div>
+  </section>`;
+  return { title:'FAQ | Little Luxe', html, init(root){
+    $$('[data-jumpto]',root).forEach(b=>b.addEventListener('click',()=>$('#'+b.dataset.jumpto,root).scrollIntoView({behavior:reduced?'auto':'smooth'})));
+    $$('details',root).forEach(d=>d.addEventListener('toggle',()=>{ if(d.open) Sound.pop(); }));
+  }};
+}
+
+const NOTES=[
+  ['How much sunscreen does a six-year-old actually need?','Sun care','sunny',()=>ART.tube('sunny','Glow','Shield'),'Short answer: more than you think. Here is a simple way to get the amount right without a measuring spoon, and how to make reapplying part of the day.'],
+  ['The school-bag skincare kit','Routines','sky',()=>ART.schoolbag('sunny'),'Water bottle, tiffin, sunscreen. What to pack for school days, sports days and trips, and how to get them to actually use it.'],
+  ['Why kids\' skin isn\'t small adult skin','Skin science','mint',()=>ART.kid({shirt:C.mintS,shorts:C.ink}),'Growing skin is still building its barrier. What that means for the products you choose, explained without the jargon.'],
+  ['Monsoon is not a day off from SPF','Seasons','lilac',()=>ART.cloud(C.lilacS),'Grey skies still let UV through. A rainy-season routine that works with gumboots and wet hair.'],
+  ['"Can I use your products?" A guide for parents of teens','Teens','blush',()=>ART.tube('blush','Blush &','Block'),'When your teen reaches for your shelf, here is what to say yes to, and what to swap for something made for them.'],
+  ['The five-minute bath-time ritual','Routines','mint',()=>ART.jar(),'Turn moisturising into the calmest part of the evening: a small routine kids look forward to.']
+]; // EDIT: replace with real articles
+function pageNotes(){
+  const html=`${pageHero('c-lilac','Small reads for busy parents.','Sun, skin and routines, explained in the time it takes to boil the milk.', ART.box())}
+  <section class="section wrap" style="padding-top:50px"><div class="notes">${NOTES.map(([t,cat,c,art],i)=>`<button class="note pop-in" style="--i:${i}" data-note="${i}"><div class="note__cover" style="--bg:var(--${c})">${art()}</div><div class="note__body"><span class="note__meta">${cat}, 3 min read</span><h3>${t}</h3></div></button>`).join('')}</div></section>`;
+  return { title:'Skin Notes | Little Luxe', html, init(root){
+    $$('[data-note]',root).forEach(b=>b.addEventListener('click',()=>{ const [t,cat,c,art,intro]=NOTES[+b.dataset.note];
+      $('#readerBody').innerHTML=`<div class="note__cover" style="--bg:var(--${c});border-radius:28px;margin-bottom:20px">${art()}</div><span class="note__meta">${cat}</span><h2 style="font-size:clamp(2rem,4vw,3rem);margin:8px 0 16px">${t}</h2><p class="lead" style="max-width:none">${intro}</p><p>The full note is being written. Join the Sunday skin note at the bottom of the page and we will send it to you first.</p>`;
+      openReader(true); }));
+  }};
+}
+function openReader(v){ const r=$('#reader'); r.classList.toggle('open',v); r.setAttribute('aria-hidden',String(!v)); if(v){ Sound.swish(); setTimeout(()=>$('#reader .reader__card button').focus(),60); } }
+
+function pageNotFound(){
+  return { title:'Not found | Little Luxe', html:`${pageHero('c-sky','This page went out to play.','It is probably on the terrace with a cricket bat. Let\'s get you back home.', ART.kid({shirt:C.blushS,shorts:C.ink,cap:true}))}<div class="wrap" style="padding:40px 0 80px"><a class="btn" href="#/">Back to home</a></div>`, init(){} };
+}
+
+/* ---------------- ROUTER ---------------- */
+const ROUTES=[
+  [/^#?\/?$/, ()=>pageHome()],
+  [/^#\/shop(?:\/(\w+))?$/, m=>pageShop(m[1]||'all')],
+  [/^#\/product\/([\w-]+)$/, m=>pageProduct(m[1])],
+  [/^#\/story$/, ()=>pageStory()],
+  [/^#\/start-here$/, ()=>pageQuiz()],
+  [/^#\/inside$/, ()=>pageInside()],
+  [/^#\/faq$/, ()=>pageFaq()],
+  [/^#\/skin-notes$/, ()=>pageNotes()],
+];
+let first=true;
+function route(){
+  const h=location.hash||'#/'; let page=null;
+  for(const [re,fn] of ROUTES){ const m=h.match(re); if(m){ page=fn(m); break; } }
+  if(!page) page=pageNotFound();
+  const main=$('#app');
+  const swap=()=>{
+    cleanups.forEach(f=>{ try{f();}catch(e){} }); cleanups=[]; scenes=[];
+    main.innerHTML=page.html; document.title=page.title; scrollTo(0,0);
+    main.classList.remove('leaving'); main.classList.remove('entering'); void main.offsetWidth; main.classList.add('entering');
+    page.init(main); $$('.pop-in',main).forEach(x=>io.observe(x));
+    $$('.nav a, .menu__links a').forEach(a=>a.toggleAttribute('aria-current', a.getAttribute('href')===h));
+  };
+  openMenu(false); openCart(false); openReader(false);
+  if(first||reduced){ first=false; swap(); } else { Sound.swish(); main.classList.add('leaving'); setTimeout(swap,200); }
+}
+
+/* ---------------- CHROME (menu, sound, newsletter) ---------------- */
+function openMenu(v){ const m=$('#menu'); m.classList.toggle('open',v); m.setAttribute('aria-hidden',String(!v)); $('#menuBtn').setAttribute('aria-expanded',String(v)); if(v){ Sound.swish(); buzz(6); setTimeout(()=>$('#menu .menu__close').focus(),60); } }
+function chrome(){
+  $('#menuProds').innerHTML=ORDER.map(id=>`<a class="menu__prod" href="#/product/${id}" style="--bg:${pal(id).l};--fg:${pal(id).d}">${P(id).art()}<span>${P(id).name}</span></a>`).join('');
+  $('#menuBtn').onclick=()=>openMenu(true);
+  $$('[data-close-menu]').forEach(b=>b.onclick=()=>openMenu(false));
+  $$('[data-close-reader]').forEach(b=>b.onclick=()=>openReader(false));
+  $$('.sound-btn').forEach(b=>b.onclick=()=>{ Sound.init(); Sound.set(!Sound.on); hideHint(); if(Sound.on) setTimeout(()=>Sound.sparkle(),60); toast(Sound.on?'Little sounds on.':'Little sounds off.'); });
+  Sound.set(Sound.on);
+  if(!Sound.on || reduced || store.get('ll-hint-done',false)) hideHint();
+  document.documentElement.style.setProperty('--announce-h', $('.announce').offsetHeight+'px');
+  $('#checkout').onclick=()=>toast('Checkout connects to the Little Luxe Shopify store when this goes live.');
+  $('#nl').onsubmit=e=>{ e.preventDefault(); const i=$('#nl input'); if(!/^\S+@\S+\.\S+$/.test(i.value)){ i.focus(); toast('Add an email address like name@example.com.'); return; }
+    const b=$('#nl button'), r=b.getBoundingClientRect(); confetti(r.left+r.width/2,r.top,30); Sound.sparkle(); b.textContent="You're on the list"; i.value=''; $('#nlMsg').textContent='Look out for the Sunday skin note.'; };
+  addEventListener('keydown',e=>{ if(e.key==='Escape'){ openMenu(false); openCart(false); openReader(false); } });
+  $('#footMarquee').outerHTML = marquee(['Little skin','Big days','Growing skin deserves care'],'c-blush',false);
+  $('#footClaims').innerHTML = claimBand(['Dermatologically tested','Clinically tested','pH balanced','Non-irritant','Paraben free','Sulphate free','Mineral oil free','Not tested on animals']);
+  $('#bagIcon').innerHTML=ART.bag(); $('#menuIcon').innerHTML=ART.menu(); $$('.x-icon').forEach(x=>x.innerHTML=ART.close()); $$('.snd-icon').forEach(x=>x.innerHTML=ART.sound());
+  $('#logoDot').outerHTML='<span class="dot" aria-hidden="true"></span>';
+  Cart.render();
+}
+
+chrome();
+addEventListener('hashchange',route);
+route();
+requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
